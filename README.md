@@ -11,5 +11,5 @@ Materials:
 * **Day 1 slides:** [click here](SQL-Course-Slides-Day-1.pdf)
 * **Day 2 slides:** [click here](SQL-Course-Slides-Day-2.pdf)
 
-Solutions to the notes will be made available after the course (currently that is November 26, 2020).
+Solutions to the exercises will be made available after the course (currently that is November 26, 2020).
 
