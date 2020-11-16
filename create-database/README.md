@@ -15,9 +15,9 @@ This guide is for the first time you create a GearHost account. If you already h
 7. Your username and an auto-generated password will be displayed. To reveal the password, click the little eyeball to the right. Your username is the same as the database name you chose in Step 5
 8. On the same page, see your database server address. The address will look like den1.mssqlx.gear.host where the 'x' in 'mssqlx' is some number
 
-### Connect SQL Server Management Studio
+### Connect SQL Server Management Studio (SSMS)
 
-9. Install and open SQL Server Management Studio (SSMS) 18 ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)) note that the SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio by jumping to step 14 below.
+9. ***Note that SSMS is currently unavailable on mac. Mac users skip to step 14 to install Azure Data Studio instead***. If you plan to use SSMS, then install and open SSMS ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)). The SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio instead by jumping to step 14 below.
 
 10. Connect with the following parameters:
 
@@ -36,9 +36,9 @@ This guide is for the first time you create a GearHost account. If you already h
 
 ### Connect Azure Data Studio (optional)
 
-You should do this if you're interested in using Azure Data Studio instead of SSMS.
+You should do this if you're interested in using Azure Data Studio instead of SSMS, or if you are on mac.
 
-14. Open Azure Data Studio
+14. Install ([click here](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)) and Open Azure Data Studio
 
 15. Click "Create a connection"
 
