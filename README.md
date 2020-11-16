@@ -1,5 +1,5 @@
 # A crash course in SQL, with a focus on T-SQL
-Notes and course material for the Introduction to SQL course, created by [Daniel Fryer](https://danielvfryer.com).
+Notes and course material for the Introduction to SQL course, created and taught by [Daniel Fryer](https://danielvfryer.com).
 
 This course is currently being taught twice per year at the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html). 
 
