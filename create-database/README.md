@@ -17,7 +17,7 @@ This guide is for the first time you create a GearHost account. If you already h
 
 ### Connect SQL Server Management Studio
 
-9. Install and open SQL Server Management Studio (SSMS) 18 ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)) note that the SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio by jumping to the next guide below this one.
+9. Install and open SQL Server Management Studio (SSMS) 18 ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)) note that the SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio by jumping to step 14 below.
 
 10. Connect with the following parameters:
 
