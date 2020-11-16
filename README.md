@@ -11,5 +11,5 @@ Materials:
 * **Day 1 slides:** [click here](SQL-Course-Slides-Day-1.pdf)
 * **Day 2 slides:** [click here](SQL-Course-Slides-Day-2.pdf)
 
-The notes contain many SQL exercises, and their solutions, that will be used during the course.
+The notes contain SQL exercises, and their solutions, that will be used during the course.
 
