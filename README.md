@@ -10,6 +10,7 @@ Materials:
 * **Notes:** [click here](SQL-Course-Notes.pdf)   
 * **Day 1 slides:** [click here](SQL-Course-Slides-Day-1.pdf)
 * **Day 2 slides:** [click here](SQL-Course-Slides-Day-2.pdf)
+* **Create database guide:** [click here](create-database)
 
 The notes contain SQL exercises, and their solutions, that will be used during the course.
 
