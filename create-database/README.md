@@ -15,10 +15,9 @@ This guide is for the first time you create a GearHost account. If you already h
 7. Your username and an auto-generated password will be displayed. To reveal the password, click the little eyeball to the right. Your username is the same as the database name you chose in Step 5
 8. On the same page, see your database server address. The address will look like den1.mssqlx.gear.host where the 'x' in 'mssqlx' is some number
 
-### Connect SQL Server Management Studio
+### Connect SQL Server Management Studio (SSMS)
 
-9. Install and open SQL Server Management Studio (SSMS) 18 ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)) note that the SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio by jumping to the next guide below this one.
-
+9. ***Note that SSMS is currently unavailable on mac. Mac users skip to step 11 to install Azure Data Studio instead***. If you plan to use SSMS, then install and open SSMS ([click here for guide](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)). The SSMS installation will also automatically install [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15), which I find to be far better than SSMS. You can use Azure Data Studio instead by jumping to step 11 below.
 10. Connect with the following parameters:
 
     ```yaml
@@ -30,19 +29,13 @@ This guide is for the first time you create a GearHost account. If you already h
     --- Troubleshooting tip Under "Options" select the box "Trust server certificate" in the "Connection Properties" tab.
     ```
 
-11. Download the `SQL-Course-Database.sql` script ([click here](SQL-Course-Database.sql)) and then click and drag it onto the SSMS window
-12. Click "Execute" (little green play symbol) or press F5
-13. Observe as your new database is gloriously materialised before your very eyes
-
 ### Connect Azure Data Studio (optional)
 
-You should do this if you're interested in using Azure Data Studio instead of SSMS.
+You should do this if you're interested in using Azure Data Studio instead of SSMS, or if you are on mac.
 
-14. Open Azure Data Studio
-
-15. Click "Create a connection"
-
-16. Connect with the following parameters:
+11. Install ([click here](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)) and Open Azure Data Studio
+12. Click "Create a connection"
+13. Connect with the following parameters:
 
     ```yaml
     Connection type:     Microsoft SQL Server
@@ -53,6 +46,8 @@ You should do this if you're interested in using Azure Data Studio instead of SS
     Everything else:     leave as defaults
     ```
 
-17. Download the `SQL-Course-Database.sql` script ([click here](SQL-Course-Database.sql)) and then click and drag it onto the Azure Data Studio window
-18. Click "Execute" (little green play symbol) or press F5
-19. Observe as your new database is gloriously materialised before your very eyes
+### Populate the Database
+
+14. Download the `SQL-Course-Database.sql` script ([click here](SQL-Course-Database.sql)) and then click and drag it onto the SSMS or Azure Data Studio window
+15. Click "Execute" (little green play symbol) or press F5
+16. Observe as your new database is gloriously materialised before your very eyes
