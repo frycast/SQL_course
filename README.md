@@ -3,7 +3,9 @@ Notes and course material for the Introduction to SQL course, created and taught
 
 This course is currently being taught twice per year at the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html). 
 
-The next delivery will be in online format, on Nov 24, 2020.
+The next delivery will be in online format, on Tuesday Nov 24, 2020.
+
+**NB: In the lead up to the next delivery I'll be making a lot of edits to these materials. So, if you're planning to print them out then it's best if you wait until Monday.**
 
 Materials:
 

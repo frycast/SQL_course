@@ -48,6 +48,6 @@ You should do this if you're interested in using Azure Data Studio instead of SS
 
 ### Populate the Database
 
-14. Download the `SQL-Course-Database.sql` script ([click here](SQL-Course-Database.sql)) and then click and drag it onto the SSMS or Azure Data Studio window
+14. Download the `SQL-Course-Database.sql` script ([right-click here and choose 'save link as'](https://raw.githubusercontent.com/frycast/SQL_course/master/create-database/SQL-Course-Database.sql)) and then click and drag it onto the SSMS or Azure Data Studio window
 15. Click "Execute" (little green play symbol) or press F5
 16. Observe as your new database is gloriously materialised before your very eyes
