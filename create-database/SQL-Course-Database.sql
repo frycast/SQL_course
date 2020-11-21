@@ -324,7 +324,7 @@ GO
 -----------------------------------------------------------------
 -- FOR SEPARATE DATABASES: EXECUTE THESE IN IDI_METADATA --------
 -----------------------------------------------------------------
-
+GO
 CREATE SCHEMA clean_read_CLASSIFICATIONS;
 GO
 
@@ -393,7 +393,7 @@ VALUES
 -----------------------------------------------------------------
 
 --- APE SCHEMA --
-
+GO
 CREATE SCHEMA Ape;
 GO
 CREATE TABLE Ape.Colours (
