@@ -466,7 +466,8 @@ INSERT INTO Ape.Friends VALUES
 (7 , 'Monsieur' , 'Mallah', 3 ),
 (8 , 'Titano'   , 'Atkins', 6 ),
 (9 , 'King'     , 'Kong'  , 3 ),
-(10, 'Bobo'     , 'Kong'  , 8 );
+(10, 'Bobo'     , 'Kong'  , 8 ),
+(11, 'Myster'   , 'Ious'  , NULL);
 GO
 
 INSERT INTO Ape.BananaTree VALUES
@@ -652,6 +653,53 @@ CREATE TABLE Notes.RandomPeople (
   Gender char(2),
   Age int
 );
+GO
+CREATE TABLE Notes.Houses (
+  house_ID      varchar(5) not null,
+  house_owner   varchar(50),
+  house_address varchar(200),
+  post_code     varchar(4),
+  house_price   Float,
+  PRIMARY KEY (house_ID)
+);
+GO
+CREATE TABLE Notes.Suburbs (
+  post_code varchar(5) not null,
+  suburb_name varchar(100) not null,
+  vaccination_rate Float,
+  PRIMARY KEY (post_code, suburb_name)
+);
+GO
+
+INSERT INTO Notes.Houses VALUES 
+('H0001', 'Millard Claassen'    , '7235 East Van Dyke St'   ,  '3128', 300000),
+('H0002', 'Jamie Pew'           , '8914 South Sunnyslope Dr',  '3128', 150000),
+('H0003', 'Bethel Viviano'      , '87 South West Halifax St',  '3142', 400000),
+('H0004', 'Brandi Hovis'        , '676 Ocean St'            ,  '3142', 360000),
+('H0005', 'Mei Colby'           , '62 West Park Ave'        ,  '3556', 220000),
+('H0006', 'Marilu Munz'         , '62 Elm Road'             ,  '3083', 120000),
+('H0007', 'Rhiannon Carwile'    , '7005 Anderson Ave'       ,  '3779', 500000),
+('H0008', 'Joycelyn Hamburger'  , '7410 Park Drive'         ,  '3778', 550000),
+('H0009', 'Leopoldo Flaherty'   , '3 Dogwood Dr'            ,  '3083', 1200000),
+('H0010', 'Xavier Farrer'       , '767 Rockville Street'    ,  '3083', 100000),
+('H0011', 'Waldo Wingboard'     , '8712 Thorne Street'      ,  NULL,   640000),
+('H0012', 'Jimmy Jenkins'       , '32 Rosey Cres'           ,  NULL,   70000);
+GO
+
+-- There is no primary / foreign key pair for Houses and Suburbs.
+-- The primary key of suburbs is not as may be expected (not post_code).
+-- 3218 connects to 2 suburbs
+-- some houses have NULL suburb
+-- 3142 has no corresponding suburb
+-- the data type for post_code in suburb is varchar(6), one suburb has postcode '3128x'
+
+INSERT INTO Notes.Suburbs VALUES
+('3128' , 'Erebor'   , 0.8),
+('33128', 'Erberor'  , 0.8),
+('3128' , 'Fangorn'  , 0.2),
+('3779' , 'Durin'    , 0.4),
+('3556' , 'Gondor'   , 0.65),
+('3083' , 'Isengaard', 0.35);
 GO
 
 INSERT INTO Notes.Friends VALUES
