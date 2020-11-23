@@ -5,8 +5,6 @@ This course is currently being taught twice per year at the [New Zealand Social 
 
 The next delivery will be in online format, on Tuesday Nov 24, 2020.
 
-**NB: In the lead up to the next delivery I'll be making a lot of edits to these materials. So, if you're planning to print them out then it's best if you wait until Monday.**
-
 Materials:
 
 * **Notes:** [click here](SQL-Course-Notes.pdf)   
