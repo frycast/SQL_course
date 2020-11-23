@@ -2,7 +2,7 @@
 
 This guide uses a service provided by [GearHost](https://gearhost.com) (which is free, at the time of writing) as one of many possible means for creating your own server to serve an SQL database, so you can connect to the database and work through the exercises in this course. 
 
-If you prefer to install the database locally using SQL Server, then [click here for a different guide](Local_README.md).
+**If you prefer to install the database locally using SQL Server, then [click here for a different guide](Local_README.md).**
 
 This guide is for the first time you create a GearHost account. If you already have a GearHost account with a database set up then log into GearHost in your browser and click "Databases" on the left hand side menu, then click the the database that you want to access. This will display the login details as described in step 7 below (so jump to step 7).
 
