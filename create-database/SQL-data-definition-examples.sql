@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS MySchema.MyFriends;
 DROP TABLE IF EXISTS MySchema.MyFriendsNames;
 DROP VIEW IF EXISTS MySchema.MyFriendsNames_view
 DROP SCHEMA IF EXISTS MySchema;
-DELETE FROM Notes.Friends WHERE Notes.Friends.friendID = 999;
+DELETE FROM Notes.Friends WHERE Notes.Friends.friendID > 995;
 GO
 
 
