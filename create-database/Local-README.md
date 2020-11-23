@@ -1,4 +1,6 @@
-This is the guide to install Azure Data Studio and SQL Server to connect to a database locally rather than remotely. 
+This guide installs Azure Data Studio and SQL Server in order to connect to a database locally rather than remotely. 
+
+**If you prefer to create and connect to a remote database server, then [click here for a different guide](README.md).**
 
 * Install and open [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15).
 * Click "Deploy a Server".
