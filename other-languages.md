@@ -14,10 +14,10 @@ Here we establish a connection using a DSN provided by the system administrator.
 install.packages("odbc")
 library(odbc)
 
-con <- dbConnect(odbc(), "insert_DSN_here")
+con <- odbc::dbConnect(odbc::odbc(), "insert_DSN_here")
 ```
 
-If you have no DSN, then you'll need to specify the connection settings. For help with finding Microsoft SQL Server connection settings, [click here](https://db.rstudio.com/databases/microsoft-sql-server/). Example:
+If you have no DSN, then you'll need to specify the connection settings. Example:
 
 ```R
 install.packages("odbc")
@@ -31,7 +31,20 @@ con <- odbc::dbConnect(odbc::odbc(),
                       PWD = "write_your_password_here")
 ```
 
-Then you can [learn about basic queries from RStudio here](https://db.rstudio.com/getting-started/database-queries). Example:
+Here is a more specific example of the above:
+
+```R
+con <- odbc::dbConnect(odbc::odbc(),
+                      Driver = "SQL Server",
+                      Server = "nzssn.database.windows.net",
+                      Database =  "master",
+                      UID = "Daniel",
+                      PWD = "insert_your_password")
+```
+
+If you are still unsuccessful, you may find more help on the RStudio website ([click here](https://db.rstudio.com/databases/microsoft-sql-server/)).
+
+Now lets send a basic query to the server and get the result. Example:
 
 ```R
 myquery <- "SELECT *
@@ -39,7 +52,9 @@ myquery <- "SELECT *
 banana <- DBI::dbGetQuery(con, statement = myquery)
 ```
 
-Now the result of the above query is stalled in the variable named `banana`
+Now the result of the above query is stored in the variable named `banana`
+
+Let's take a closer look at this variable `banana`:
 
 ```R
 class(banana)
@@ -47,7 +62,7 @@ names(banana)
 head(banana)
 ```
 
-We can loop though a large table and fetch only a few rows at a time. Example:
+We can also loop though a table (e.g., a very large table) and fetch only a few rows at a time. Example:
 
 ```R
 myquery2 <- "SELECT *
@@ -56,9 +71,7 @@ results <- DBI::dbSendQuery(con, statement = myquery2)
 results
 ```
 
-We have sent the query, and now it's time to fetch rows from the result. 
-
-Here we fetch the first 5 rows
+We have sent the query, and now it's time to fetch rows from the result. Here we fetch the first 5 rows
 
 ```R
 eating <- DBI::dbFetch(results, n = 5)
