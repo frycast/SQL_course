@@ -29,7 +29,7 @@ con <- odbc::dbConnect(odbc::odbc(),
                       PWD = "write_your_password_here")
 ```
 
-Here is a more specific example of the above:
+Here is a more specific example of the above. Connecting to the master database from the course:
 
 ```R
 con <- odbc::dbConnect(odbc::odbc(),
@@ -42,11 +42,11 @@ con <- odbc::dbConnect(odbc::odbc(),
 
 If you are still unsuccessful, you may find more help on the RStudio website ([click here](https://db.rstudio.com/databases/microsoft-sql-server/)).
 
-Now lets send a basic query to the server and get the result. Example:
+Now lets send a basic query to the server and get the result. We will need to explicitly specify `PlayPen` as the database, since we are currently connected to `master` . Example:
 
 ```R
 myquery <- "SELECT *
-            FROM Ape.Banana;"
+            FROM PlayPen.Ape.Banana;"
 banana <- DBI::dbGetQuery(con, statement = myquery)
 ```
 
@@ -64,7 +64,7 @@ We can also loop though a table (e.g., a very large table) and fetch only a few 
 
 ```R
 myquery2 <- "SELECT *
-             FROM Ape.EatingFrom;"
+             FROM PlayPen.Ape.EatingFrom;"
 results <- DBI::dbSendQuery(con, statement = myquery2)
 results
 ```
@@ -88,7 +88,22 @@ For info, the [RStudio guide for is useful (click here)](https://db.rstudio.com/
 
 ## STATA
 
+**Disclaimer:** *I am unable to execute this code since I don't have a copy of STATA, and I've never used STATA before. This is just my best effort at including STATA for completeness. If someone could please verify that this works (or not) and email me, that would be great.*
 
+```SAS
+odbc load, exec(
+"SELECT TOP(100) * 
+FROM Notes.Friends;
+") 
+dsn("ask_someone_for_the_DSN") lowercase sqlshow clear; 
+```
+
+```SAS
+odbc load, exec(
+"SELECT * 
+FROM Notes.Friends;") 
+dsn("ask_someone_for_the_DSN") lowercase sqlshow clear;
+```
 
 
 
@@ -100,7 +115,7 @@ Example:
 
 ```SAS
 proc sql;
-connect to odbc (dsn="ask_someone_in_your_IT_department_for_the_DSN");
+connect to odbc (dsn="ask_someone_for_the_DSN");
 create table My_SAS_table_of_friends as 
 select * from connection to odbc
 /* -------- Start of SQL code -------*/
@@ -115,7 +130,7 @@ Here's another example using tables and columns in the IDI
 
 ```SAS
 proc sql;
-connect to odbc(dsn="ask_someone_in_your_IT_department_for_the_DSN");
+connect to odbc(dsn="ask_someone_for_the_DSN");
 create table work.census_address as 
 select * from connection to odbc
 /* -------- Start of SQL code -------*/
