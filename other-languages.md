@@ -6,8 +6,6 @@ A Data Source Name (DSN) is usually set up by your system administrator. If not,
 
 ## R
 
-The [RStudio guide for this is useful (click here)](https://db.rstudio.com/getting-started/connect-to-database). 
-
 Here we establish a connection using a DSN provided by the system administrator.
 
 ```R
@@ -86,7 +84,7 @@ eating <- rbind(eating, next5)
 eating
 ```
 
-
+For info, the [RStudio guide for is useful (click here)](https://db.rstudio.com/getting-started/connect-to-database). 
 
 ## STATA
 
