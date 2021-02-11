@@ -8,7 +8,7 @@ This guide installs Azure Data Studio and SQL Server in order to connect to a da
 * The SQL Server 2019 Developer Edition download and install will now be initiated.
 * Close the SQL Server 2019 window when the installation is complete.
 * Open Azure Data Studio, click "Create a Connection" 
-* Under Server, type "localhost", and click connect
+* Under "Server", type "localhost", and click connect
 * Download the `SQL-Course-Database.sql` script ([right-click here and choose 'save link as'](https://raw.githubusercontent.com/frycast/SQL_course/master/create-database/SQL-Course-Database.sql)) and then click and drag it into the Azure Data Studio window
 * Click "Execute" (little green play symbol) or press F5
 * Done!
