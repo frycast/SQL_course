@@ -10,7 +10,8 @@ Materials:
 * **Notes:** [click here](SQL-Course-Notes.pdf)   
 * **Day 1 slides:** [click here](SQL-Course-Slides-Day-1.pdf)
 * **Day 2 slides:** [click here](SQL-Course-Slides-Day-2.pdf)
-* **Create database guide:** [click here](create-database)
+* **Create local database guide:** [click here](create-database/Local-README.md)
+* **Create remote database guide:** [click here](create-database)
 * **Connecting from other languages guide:** [click here](other-languages.md)
 
 The notes contain SQL exercises, and their solutions, that will be used during the course.
