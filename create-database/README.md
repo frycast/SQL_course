@@ -1,6 +1,6 @@
 ## SQL Course Database Setup Guide
 
-This guide uses a service provided by [GearHost](https://gearhost.com) (which is free, at the time of writing) as one way to create your own (free) server to serve an SQL database, so you can connect to the database and work through the exercises in this course. 
+This guide uses a service provided by [GearHost](https://gearhost.com) (which is free, at the time of writing) as one way to create your own (free) server to serve a SQL database, so you can connect to the database and work through the exercises in this course. 
 
 **If you prefer to install the database locally using SQL Server, then [click here for a different guide](Local-README.md).**
 
