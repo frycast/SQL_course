@@ -1,22 +1,18 @@
--------------------------------------------------------------------
+-- -----------------------------------------------------------------
 /*
 Practice data for the Intro to SQL Course by Daniel Fryer.
 */
--------------------------------------------------------------------
+-- -----------------------------------------------------------------
 
--------------------------------------------------------------------
+-- -----------------------------------------------------------------
 -- CREATE IDI_CLEAN DATABASE  -------------------------------------
--------------------------------------------------------------------
+-- -----------------------------------------------------------------
+DROP DATABASE IF EXISTS IDI_Clean;
 CREATE DATABASE IDI_Clean;
-GO -- GO is an T-SQL batch terminator
+
 USE IDI_Clean;
-GO
 
--- DIA (Department of Internal Affairs)
-CREATE SCHEMA DIA_clean;
-GO 
-
-CREATE TABLE DIA_Clean.births (
+CREATE TABLE DIA_Clean_births (
   snz_uid                         int            not null UNIQUE, 
   snz_dia_uid                     int            not null UNIQUE,
   parent1_snz_uid                 int            null,
@@ -36,16 +32,16 @@ CREATE TABLE DIA_Clean.births (
   dia_bir_ethnic_grp4_snz_ind     bit            not null,  -- Asian
   dia_bir_ethnic_grp5_snz_ind     bit            not null,  -- MELAA
   dia_bir_ethnic_grp6_snz_ind     bit            not null); -- Other
-GO
-CREATE TABLE DIA_Clean.deaths (
+
+CREATE TABLE DIA_Clean_deaths (
   snz_uid                      int      not null UNIQUE, 
   snz_dia_uid                  int      not null UNIQUE,
   dia_dth_death_month_nbr      tinyint  null,
   dia_dth_death_year_nbr       smallint null,
   dia_dth_last_seen_month_nbr  tinyint  null,
-  dia_dth_last_seen_year_nbr   smallint null,);
-GO
-CREATE TABLE DIA_Clean.marriages (
+  dia_dth_last_seen_year_nbr   smallint null);
+
+CREATE TABLE DIA_Clean_marriages (
   partnr1_snz_uid                 int          not null UNIQUE, 
   partnr1_snz_dia_uid             int          not null UNIQUE,
   partnr2_snz_uid                 int          not null UNIQUE, 
@@ -58,8 +54,8 @@ CREATE TABLE DIA_Clean.marriages (
   dia_mar_partnr2_birth_year_nbr  smallint     null,
   dia_mar_partnr2_sex_snz_code    varchar(100) null,
   dia_mar_partnr2_occupation_text varchar(60)  null);
-GO
-CREATE TABLE DIA_Clean.civil_unions (
+
+CREATE TABLE DIA_Clean_civil_unions (
   partnr1_snz_uid                 int          not null UNIQUE, 
   partnr1_snz_dia_uid             int          not null UNIQUE,
   partnr2_snz_uid                 int          not null UNIQUE, 
@@ -72,13 +68,8 @@ CREATE TABLE DIA_Clean.civil_unions (
   dia_civ_partnr2_birth_year_nbr  smallint     null,
   dia_civ_partnr2_sex_snz_code    varchar(100) null,
   dia_civ_partnr2_occupation_text varchar(60)  null);
-GO
 
-CREATE SCHEMA [security];
-GO
-GO 
-
-CREATE TABLE security.concordance (
+CREATE TABLE security_concordance (
   snz_uid                 int not null UNIQUE, 
   snz_dia_uid             int,
   snz_ird_uid             int,
@@ -87,77 +78,65 @@ CREATE TABLE security.concordance (
   snz_acc_uid             int,
   snz_dol_uid             int,
   snz_in_spine            bit not null);
-GO
-
-CREATE SCHEMA [data];
-GO
 
 -- Researchers may wish to exclude people who
 -- were overseas
-CREATE TABLE [data].person_overseas_spell (
+CREATE TABLE data_person_overseas_spell (
   snz_uid                 int not null UNIQUE, 
   pos_applied_date        date null,
   pos_ceased_date         date null);
-GO
 
 -- The column with 0 or 1 indicates
 -- if an individual is in the spine
-CREATE TABLE [data].personal_detail (
+CREATE TABLE data_personal_detail (
   snz_uid int not null UNIQUE,
   snz_in_spine int not null
 );
-GO
 
 -- In this table there should be
 -- one row for each unique combination
 -- of snz_uid and year
-CREATE TABLE [data].snz_res_pop (
+CREATE TABLE data_snz_res_pop (
   snz_uid int not null UNIQUE,
   year int not null
 );
-GO
 
 -- I CREATED THESE EMPTY TABLES SO THE TABLE
 -- NAMES WOULD MATCH SOME OF THOSE IN THE
 -- DATA SCHEMA
-CREATE TABLE [data].source_ranked_ethnicity (
+CREATE TABLE data_source_ranked_ethnicity (
   snz_uid                 int not null UNIQUE, 
   dummy1 int,
   dummy2 int,
   dummy3 int);
-GO
-CREATE TABLE [data].income_tax_yr_summary (
+
+CREATE TABLE data_income_tax_yr_summary (
   snz_uid                 int not null UNIQUE, 
   dummy1 int,
   dummy2 int,
   dummy3 int);
-GO
-CREATE TABLE [data].income_cal_yr_summary (
+
+CREATE TABLE data_income_cal_yr_summary (
   snz_uid                 int not null UNIQUE, 
   dummy1 int,
   dummy2 int,
   dummy3 int);
-GO
-CREATE TABLE [data].address_notification (
+
+CREATE TABLE data_address_notification (
   snz_uid int not null UNIQUE, 
   dummy1 int,
   dummy2 int,
   dummy3 int);
-GO  
 
-CREATE SCHEMA ACC_Clean;
-GO
-
-CREATE TABLE ACC_Clean.Medical_Codes (
+CREATE TABLE ACC_Clean_Medical_Codes (
   snz_acc_claim_uid int not null,
   acc_med_injury_count_nbr smallint,
   acc_med_read_code varchar(6),
   acc_med_read_code_text varchar(255),
   acc_med_injury_precedence_nbr int not null
 );
-GO
 
-CREATE TABLE ACC_Clean.Serious_Injury (
+CREATE TABLE ACC_Clean_Serious_Injury (
   snz_uid int not null,
   snz_acc_uid int not null,
   snz_employee_ird_uid int null,
@@ -173,9 +152,9 @@ CREATE TABLE ACC_Clean.Serious_Injury (
   snz_acc_claim_uid int not null,
   acc_cla_meshblock_code varchar(7) null
 );
-GO
 
-INSERT INTO ACC_Clean.Medical_Codes
+
+INSERT INTO ACC_Clean_Medical_Codes
 ( snz_acc_claim_uid,
   acc_med_injury_count_nbr,
   acc_med_read_code,
@@ -192,9 +171,8 @@ VALUES
 (8 ,2, 'c', 'exploded lung'     ,3 ),
 (9 ,3, 'c', 'exploded lung'     ,3 ),
 (10,3, 'c', 'exploded lung'     ,3 );
-GO
 
-INSERT INTO ACC_Clean.Serious_Injury
+INSERT INTO ACC_Clean_Serious_Injury
 ( snz_uid                                           ,
   snz_acc_uid                                       ,
   snz_employee_ird_uid                              ,
@@ -220,9 +198,8 @@ VALUES
 (8 ,  28  ,15 ,42 , '20160916', 120    ,0 ,0 ,0 ,0 ,1 ,0 ,8  , 'FD432' ),
 (6 ,  27  ,14 ,42 , '20160918', 130    ,0 ,1 ,0 ,0 ,0 ,0 ,9  , 'HFD432'),
 (3 ,  20  ,12 ,42 , '20160919', 45000  ,1 ,1 ,0 ,0 ,0 ,0 ,10 , 'FGV432');
-GO
 
-INSERT INTO security.concordance (
+INSERT INTO security_concordance (
   snz_uid       , 
   snz_dia_uid   ,          
   snz_ird_uid   ,         
@@ -251,9 +228,9 @@ VALUES
 (17 ,NULL  , 34     , NULL, NULL ,7   ,NULL,1),   
 (18 ,76    , 100    , NULL, NULL ,NULL,NULL,0),  
 (19 ,NULL  , 101    , NULL, 32   ,3   ,NULL,0);
-GO
 
---CREATE TABLE dia_clean.births (
+
+-- CREATE TABLE dia_clean_births (
 --  snz_uid                         int            not null UNIQUE, 
 --  snz_dia_uid                     int            not null UNIQUE,
 --  parent1_snz_uid                 int            null,
@@ -273,16 +250,16 @@ GO
 --  dia_bir_ethnic_grp4_snz_ind     bit            not null,  -- Asian
 --  dia_bir_ethnic_grp5_snz_ind     bit            not null,  -- MELAA
 --  dia_bir_ethnic_grp6_snz_ind     bit            not null); -- Other
---GO
---CREATE TABLE dia_clean.deaths (
+--
+-- CREATE TABLE dia_clean_deaths (
 --  snz_uid                      int      not null UNIQUE, 
 --  snz_dia_uid                  int      not null UNIQUE,
 --  dia_dth_death_month_nbr      tinyint  null,
 --  dia_dth_death_year_nbr       smallint null,
 --  dia_dth_last_seen_month_nbr  tinyint  null,
 --  dia_dth_last_seen_year_nbr   smallint null,);
---GO
---CREATE TABLE dia_clean.marriages (
+--
+-- CREATE TABLE dia_clean_marriages (
 --  partnr1_snz_uid                 int          not null UNIQUE, 
 --  partnr1_snz_dia_uid             int          not null UNIQUE,
 --  partnr2_snz_uid                 int          not null UNIQUE, 
@@ -295,8 +272,8 @@ GO
 --  dia_mar_partnr2_birth_year_nbr  smallint     null,
 --  dia_mar_partnr2_sex_snz_code    varchar(100) null,
 --  dia_mar_partnr2_occupation_text varchar(60)  null);
---GO
---CREATE TABLE dia_clean.civil_unions (
+--
+-- CREATE TABLE dia_clean_civil_unions (
 --  partnr1_snz_uid                 int          not null UNIQUE, 
 --  partnr1_snz_dia_uid             int          not null UNIQUE,
 --  partnr2_snz_uid                 int          not null UNIQUE, 
@@ -309,46 +286,41 @@ GO
 --  dia_civ_partnr2_birth_year_nbr  smallint     null,
 --  dia_civ_partnr2_sex_snz_code    varchar(100) null,
 --  dia_civ_partnr2_occupation_text varchar(60)  null);
---GO
+--
 
--- INSERT INTO DIA_Clean.civil_unions VALUES (10, 34,    6 ,   23  , 1, 1975, 1, NULL, 1,  1976, 1, NULL);
--- INSERT INTO DIA_Clean.civil_unions VALUES (2,  55,    3 ,   123 , 2, 1966, 0, NULL, 6,  1969, 1, NULL);
--- INSERT INTO DIA_Clean.civil_unions VALUES (1,  32,    12,   65  , 5, 1977, 0, NULL, 4,  1973, 1, NULL);
--- INSERT INTO DIA_Clean.civil_unions VALUES (4,  1,     16,   765 , 5, 1988, 1, NULL, 4,  1989, 0, NULL);
--- INSERT INTO DIA_Clean.civil_unions VALUES (7,  67,    18,   76  , 9, 1999, 0, NULL, 12, 1995, 0, NULL);
--- GO 
+-- INSERT INTO DIA_Clean_civil_unions VALUES (10, 34,    6 ,   23  , 1, 1975, 1, NULL, 1,  1976, 1, NULL);
+-- INSERT INTO DIA_Clean_civil_unions VALUES (2,  55,    3 ,   123 , 2, 1966, 0, NULL, 6,  1969, 1, NULL);
+-- INSERT INTO DIA_Clean_civil_unions VALUES (1,  32,    12,   65  , 5, 1977, 0, NULL, 4,  1973, 1, NULL);
+-- INSERT INTO DIA_Clean_civil_unions VALUES (4,  1,     16,   765 , 5, 1988, 1, NULL, 4,  1989, 0, NULL);
+-- INSERT INTO DIA_Clean_civil_unions VALUES (7,  67,    18,   76  , 9, 1999, 0, NULL, 12, 1995, 0, NULL);
+--  
 
------------------------------------------------------------------
+-- ---------------------------------------------------------------
 -- CREATE IDI_Metadata DATABASE ---------------------------------
------------------------------------------------------------------
-USE master;
-GO
-
+-- ---------------------------------------------------------------
+DROP DATABASE IF EXISTS IDI_Metadata;
 CREATE DATABASE IDI_Metadata;
-GO
+
 
 USE IDI_Metadata;
-GO
 
-CREATE SCHEMA clean_read_CLASSIFICATIONS;
-GO
 
 -- I'm not sure what the table names or
 -- variable names are in here so these
 -- are just made up to simulate the functionality
-CREATE TABLE clean_read_CLASSIFICATIONS.ethnicity (
-  ethnic_grp int not null, --a number from 1 to 6
+CREATE TABLE clean_read_CLASSIFICATIONS_ethnicity (
+  ethnic_grp int not null, -- a number from 1 to 6
   description varchar(100) not null
 );
-GO
 
-CREATE TABLE clean_read_CLASSIFICATIONS.post_codes (
+
+CREATE TABLE clean_read_CLASSIFICATIONS_post_codes (
   post_code int not null,
   description varchar(100)
 );
-GO
 
-INSERT INTO clean_read_CLASSIFICATIONS.ethnicity
+
+INSERT INTO clean_read_CLASSIFICATIONS_ethnicity
 (ethnic_grp, description)
 VALUES
 (1, 'European'),
@@ -358,11 +330,11 @@ VALUES
 (5, 'Middle Eastern/Latin American/African'),
 (6, 'Other ethnicity');
 
------------------------------------------------------------------
+-- ---------------------------------------------------------------
 -- CREATE OLDER IDI_Clean REFRESH DATABASE ----------------------
------------------------------------------------------------------
+-- ---------------------------------------------------------------
 
---INSERT INTO security.concordance (
+-- INSERT INTO security_concordance (
 --  snz_uid       , 
 --  snz_dia_uid   ,          
 --  snz_ird_uid   ,         
@@ -371,60 +343,54 @@ VALUES
 --  snz_acc_uid   ,         
 --  snz_dol_uid   ,         
 --  snz_in_spine)
---VALUES
---(13, 34   , NULL   , NULL, NULL ,NULL,NULL, 1),  
---(21 ,55    , NULL   , NULL, NULL ,2   ,NULL,1),    
---(34 ,32    , NULL   , NULL, NULL ,NULL,NULL,1),  
---(24 ,1     , NULL   , NULL, NULL ,4   ,NULL,1),   
---(55 ,67    , NULL   , NULL, NULL ,5   ,NULL,1),   
---(7 ,NULL  , 3      , NULL, NULL ,NULL,NULL,0),  
---(17 ,32    , 1      , NULL, NULL ,NULL,NULL,0),  
---(28 ,43    , 2      , NULL, NULL ,8   ,NULL,1),   
---(59 ,23    , 4      , NULL, NULL ,9   ,NULL,1),   
---(1237,123   , 6      , NULL, NULL ,10  ,NULL,1),   
---(121,NULL  , 7      , NULL, NULL ,NULL,NULL,1),   
---(345,65    , 5      , NULL, NULL ,NULL,NULL,0),  
---(765, NULL , 10     , NULL, NULL ,6   ,NULL,1),   
---(1432, NULL , 12     , NULL, NULL ,1   ,NULL,1),   
---(873, NULL , 43     , NULL, NULL ,NULL,NULL,1),  
---(3,765   , 44     , NULL, NULL ,NULL,NULL,0),  
---(5,NULL  , 34     , NULL, NULL ,7   ,NULL,1),   
---(78,76    , 100    , NULL, NULL ,NULL,NULL,0),  
---(1,NULL  , 101    , NULL, 32   ,3   ,NULL,0);
---GO
+-- VALUES
+-- (13, 34   , NULL   , NULL, NULL ,NULL,NULL, 1),  
+-- (21 ,55    , NULL   , NULL, NULL ,2   ,NULL,1),    
+-- (34 ,32    , NULL   , NULL, NULL ,NULL,NULL,1),  
+-- (24 ,1     , NULL   , NULL, NULL ,4   ,NULL,1),   
+-- (55 ,67    , NULL   , NULL, NULL ,5   ,NULL,1),   
+-- (7 ,NULL  , 3      , NULL, NULL ,NULL,NULL,0),  
+-- (17 ,32    , 1      , NULL, NULL ,NULL,NULL,0),  
+-- (28 ,43    , 2      , NULL, NULL ,8   ,NULL,1),   
+-- (59 ,23    , 4      , NULL, NULL ,9   ,NULL,1),   
+-- (1237,123   , 6      , NULL, NULL ,10  ,NULL,1),   
+-- (121,NULL  , 7      , NULL, NULL ,NULL,NULL,1),   
+-- (345,65    , 5      , NULL, NULL ,NULL,NULL,0),  
+-- (765, NULL , 10     , NULL, NULL ,6   ,NULL,1),   
+-- (1432, NULL , 12     , NULL, NULL ,1   ,NULL,1),   
+-- (873, NULL , 43     , NULL, NULL ,NULL,NULL,1),  
+-- (3,765   , 44     , NULL, NULL ,NULL,NULL,0),  
+-- (5,NULL  , 34     , NULL, NULL ,7   ,NULL,1),   
+-- (78,76    , 100    , NULL, NULL ,NULL,NULL,0),  
+-- (1,NULL  , 101    , NULL, 32   ,3   ,NULL,0);
+--
 
------------------------------------------------------------------
+-- ---------------------------------------------------------------
 -- CREATE Sandpit DATABASE --------------------------------------
--------------------------------------------------------------- ---
-USE master;
-GO
-
+-- ------------------------------------------------------------ ---
+DROP DATABASE IF EXISTS Sandpit;
 CREATE DATABASE Sandpit;
-GO
 
 USE Sandpit;
-GO
 
---- APE SCHEMA --
-CREATE SCHEMA Ape;
-GO
-CREATE TABLE Ape.Colours (
+
+CREATE TABLE Ape_Colours (
   ColourID int not null,
   ColourName varchar(20) not null,
-  Comments varchar(100) -- I find this Colour strange etc.
+  Comments varchar(100), -- I find this Colour strange etc.
   PRIMARY KEY (ColourID)
 );
-GO
-CREATE TABLE Ape.Friends (
+
+CREATE TABLE Ape_Friends (
   FriendID int not null,
   FirstName varchar(20),
   LastName varchar(20),
   FavColourID int,
-  FOREIGN KEY (FavColourID) REFERENCES Ape.Colours,
+  FOREIGN KEY (FavColourID) REFERENCES Ape_Colours (ColourID),
   PRIMARY KEY (FriendID)
 );
-GO
-CREATE TABLE Ape.BananaTree (
+
+CREATE TABLE Ape_BananaTree (
   TreeID int not null,
   Height float,
   YearPlanted int,
@@ -432,15 +398,15 @@ CREATE TABLE Ape.BananaTree (
   Width float,
   PRIMARY KEY (TreeID)
 );
-GO
-CREATE TABLE Ape.EatingFrom (
+
+CREATE TABLE Ape_EatingFrom (
   FriendID int not null,
   TreeID int not null,
-  FOREIGN KEY (FriendID) REFERENCES Ape.Friends,
-  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree
+  FOREIGN KEY (FriendID) REFERENCES Ape_Friends (FriendID),
+  FOREIGN KEY (TreeID) REFERENCES Ape_BananaTree (TreeID)
 );
-GO
-CREATE TABLE Ape.Banana (
+
+CREATE TABLE Ape_Banana (
   BananaID int not null,
   TasteRank int, -- from 1 to 5
   DatePicked date not null,
@@ -448,12 +414,12 @@ CREATE TABLE Ape.Banana (
   Ripe bit,
   TreeID int not null,
   Comments varchar(100),
-  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree,
+  FOREIGN KEY (TreeID) REFERENCES Ape_BananaTree (TreeID),
   PRIMARY KEY (BananaID)
 );
-GO
 
-INSERT INTO Ape.Colours VALUES
+
+INSERT INTO Ape_Colours VALUES
 (1 ,'blue'     , 'similar to sky' ),
 (2 ,'green'    , 'bad tasting bananas'),
 (3 ,'yellow'   , 'my favourite because banana'),
@@ -465,9 +431,9 @@ INSERT INTO Ape.Colours VALUES
 (9 ,'pink'     , 'very manly'),
 (10,'lime'     , 'almost green'),
 (11,'turquoise', 'not to be confused with tortoise');
-GO
 
-INSERT INTO Ape.Friends VALUES
+
+INSERT INTO Ape_Friends VALUES
 (1 , 'Caesar'   , 'Serkis', 3 ),
 (2 , 'Harambe'  , 'Porter', 1 ),
 (3 , 'Aldo'     , 'Atkins', 3 ),
@@ -479,9 +445,9 @@ INSERT INTO Ape.Friends VALUES
 (9 , 'King'     , 'Kong'  , 3 ),
 (10, 'Bobo'     , 'Kong'  , 8 ),
 (11, 'Myster'   , 'Ious'  , NULL);
-GO
 
-INSERT INTO Ape.BananaTree VALUES
+
+INSERT INTO Ape_BananaTree VALUES
 (1,  5.5, 2018, 08, 31),
 (2,  4.3, 2018, 08, 27),
 (3,  4.7, 2018, 08, 36),
@@ -500,9 +466,9 @@ INSERT INTO Ape.BananaTree VALUES
 (16, 4.2, 2014, 10, 23),
 (17, 5.4, 2014, 08, 39),
 (18, 5.2, 2014, 08, 28);
-GO
 
-INSERT INTO Ape.EatingFrom VALUES
+
+INSERT INTO Ape_EatingFrom VALUES
 (3 ,1 ), 
 (2 ,1 ),
 (1 ,1 ),
@@ -532,9 +498,9 @@ INSERT INTO Ape.EatingFrom VALUES
 (7 ,11),
 (2 ,14),
 (2 ,1 );
-GO
 
-INSERT INTO Ape.Banana VALUES
+
+INSERT INTO Ape_Banana VALUES
 (1 , 2, '20181003', '20181004', 0, 1 , NULL),
 (2 , 4, '20181003', '20181004', 1, 2 , NULL),
 (3 , 4, '20181003', '20181004', 1, 2 , NULL),
@@ -585,85 +551,84 @@ INSERT INTO Ape.Banana VALUES
 (48, 5, '20180927', '20180930', 1, 17, NULL),
 (49, 5, '20180927', '20180930', 1, 18, NULL),
 (50, 3, '20180927', '20180928', 1, 3 , NULL);
-GO
 
---- NOTES SCHEMA --
-CREATE SCHEMA Notes;
-GO
-CREATE TABLE Notes.Friends (
+
+-- - NOTES SCHEMA --
+
+CREATE TABLE Notes_Friends (
   FriendID int not null,
   FirstName varchar(20),
   LastName varchar(20),
   FavColour varchar(20),
   PRIMARY KEY (FriendID)
 );
-GO
-CREATE TABLE Notes.Pets (
+
+CREATE TABLE Notes_Pets (
   PetID int not null,
   PetName varchar(20),
   PetDOB date,
   FriendID int not null,
-  FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+  FOREIGN KEY (FriendID) REFERENCES Notes_Friends (FriendID),
   PRIMARY KEY (PetID)
 );
-GO
-CREATE TABLE Notes.Scratched (
+
+CREATE TABLE Notes_Scratched (
   ScratcherID int not null,
   ScratchDate date, 
   ScratchTime time,
   ScratcheeID int not null,
-  FOREIGN KEY (ScratcherID) REFERENCES Notes.Friends,
-  FOREIGN KEY (ScratcheeID) REFERENCES Notes.Friends,
+  FOREIGN KEY (ScratcherID) REFERENCES Notes_Friends (FriendID),
+  FOREIGN KEY (ScratcheeID) REFERENCES Notes_Friends (FriendID),
   PRIMARY KEY (ScratcherID, ScratcheeID, ScratchDate, ScratchTime)
 );
-GO
-CREATE TABLE Notes.PlayCount (
+
+CREATE TABLE Notes_PlayCount (
  PetID int not null,
  PlayCounter int,
  FriendID int not null,
- FOREIGN KEY (PetID) REFERENCES Notes.Pets,
- FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+ FOREIGN KEY (PetID) REFERENCES Notes_Pets (PetID),
+ FOREIGN KEY (FriendID) REFERENCES Notes_Friends (FriendID),
  PRIMARY KEY (PetID, FriendID)
 );
-GO
-CREATE TABLE Notes.Passports (
+
+CREATE TABLE Notes_Passports (
   PptNo varchar(5) not null,
   PptCountry varchar(20),
   PptExpiry date,
   FriendID int,
-  FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+  FOREIGN KEY (FriendID) REFERENCES Notes_Friends (FriendID),
   PRIMARY KEY (PptNo)
 );
-GO
-CREATE TABLE Notes.Table1 (
+
+CREATE TABLE Notes_Table1 (
   A int not null,
   B varchar(20),
   C varchar(20),
   PRIMARY KEY (A)
 );
-GO
-CREATE TABLE Notes.Table2 (
+
+CREATE TABLE Notes_Table2 (
   D varchar(20),
   E int not null,
   A int not null,
-  FOREIGN KEY (A) REFERENCES Notes.Table1,
+  FOREIGN KEY (A) REFERENCES Notes_Table1 (A),
   PRIMARY KEY (E)
 );
-GO
-CREATE TABLE Notes.Letters (
+
+CREATE TABLE Notes_Letters (
   A char,
   B char,
   Num int not null,
   PRIMARY KEY (Num)
 );
-GO
-CREATE TABLE Notes.RandomPeople (
+
+CREATE TABLE Notes_RandomPeople (
   PersonName varchar(20),
   Gender char(2),
   Age int
 );
-GO
-CREATE TABLE Notes.Houses (
+
+CREATE TABLE Notes_Houses (
   house_ID      varchar(5) not null,
   house_owner   varchar(50),
   house_address varchar(200),
@@ -671,16 +636,15 @@ CREATE TABLE Notes.Houses (
   house_price   Float,
   PRIMARY KEY (house_ID)
 );
-GO
-CREATE TABLE Notes.Suburbs (
+
+CREATE TABLE Notes_Suburbs (
   post_code varchar(5) not null,
   suburb_name varchar(100) not null,
   vaccination_rate Float,
   PRIMARY KEY (post_code, suburb_name)
 );
-GO
 
-INSERT INTO Notes.Houses VALUES 
+INSERT INTO Notes_Houses VALUES 
 ('H0001', 'Millard Claassen'    , '7235 East Van Dyke St'   ,  '3128', 300000),
 ('H0002', 'Jamie Pew'           , '8914 South Sunnyslope Dr',  '3128', 150000),
 ('H0003', 'Bethel Viviano'      , '87 South West Halifax St',  '3142', 400000),
@@ -693,77 +657,71 @@ INSERT INTO Notes.Houses VALUES
 ('H0010', 'Xavier Farrer'       , '767 Rockville Street'    ,  '3083', 100000),
 ('H0011', 'Waldo Wingboard'     , '8712 Thorne Street'      ,  NULL,   640000),
 ('H0012', 'Jimmy Jenkins'       , '32 Rosey Cres'           ,  NULL,   70000);
-GO
 
 -- There is no primary / foreign key pair for Houses and Suburbs.
 -- The primary key of suburbs is not as may be expected (not post_code).
 -- 3218 connects to 2 suburbs
 -- some houses have NULL suburb
 -- 3142 has no corresponding suburb
--- the data type for post_code in suburb is varchar(6), one suburb has postcode '3128x'
+-- the data type for post_code in suburb is varchar(6), one suburb has postcode '33128'
 
-INSERT INTO Notes.Suburbs VALUES
+INSERT INTO Notes_Suburbs VALUES
 ('3128' , 'Erebor'   , 0.8),
 ('33128', 'Erberor'  , 0.8),
 ('3128' , 'Fangorn'  , 0.2),
 ('3779' , 'Durin'    , 0.4),
 ('3556' , 'Gondor'   , 0.65),
 ('3083' , 'Isengaard', 0.35);
-GO
 
-INSERT INTO Notes.Friends VALUES
+INSERT INTO Notes_Friends VALUES
 (1, 'X', 'A', 'red'),
 (2, 'Y', 'B', 'blue'),
 (3, 'Z', 'C', NULL);
-GO
-INSERT INTO Notes.Pets VALUES
+
+INSERT INTO Notes_Pets VALUES
 (1, 'Chikin', '20160924', 2),
 (2, 'Cauchy', '20120301', 3),
 (3, 'Gauss', '20120301', 3);
-GO
-INSERT INTO Notes.Scratched VALUES
-(1, '20180905', '12:00PM', 2),
-(1, '20180905', '12:30PM', 3),
-(2, '20180906', '11:00AM', 1),
-(3, '20180907', '10:00AM', 1);
-GO
-INSERT INTO Notes.PlayCount VALUES
+
+INSERT INTO Notes_Scratched VALUES
+(1, '20180905', '12:00', 2),
+(1, '20180905', '12:30', 3),
+(2, '20180906', '11:00', 1),
+(3, '20180907', '10:00', 1);
+
+INSERT INTO Notes_PlayCount VALUES
 (1, 3, 1),
 (1, 5, 2),
 (3, 4, 2);
-GO
-INSERT INTO Notes.Passports VALUES
+
+INSERT INTO Notes_Passports VALUES
 ('E1321', 'Australia', '20210312', NULL),
 ('LA123', 'New Zealand', '20320901', 2),
 ('S9876', 'Monaco', '20280619', 3);
 
-GO
-INSERT INTO Notes.Table1 (
+INSERT INTO Notes_Table1 (
  A, B, C
 ) VALUES
  (1, 'Ignorance', 'is'),
  (2, 'War', 'is'),
  (3, 'Freedom', 'is'),
  (4, 'Friendship', 'is');
-GO
 
-INSERT INTO Notes.Table2 (
+INSERT INTO Notes_Table2 (
  D, E, A
 ) VALUES
  ('slavery.', 3, 1),
  ('weakness.', 4, 2),
  ('strength.', 1, 3),
  ('peace.', 2, 4);
-GO
 
-INSERT INTO Notes.Letters VALUES
+INSERT INTO Notes_Letters VALUES
 ('a', 'b', 1),
 ('a', 'c', 2),
 ('a', 'b', 3),
 ('a', 'c', 4);
-GO
 
-INSERT INTO Notes.RandomPeople VALUES
+INSERT INTO Notes_RandomPeople VALUES
 ('Beyonce', 'F', 37),
 ('Laura Marling', 'F', 28),
 ('Darren Hayes', 'M', 46),

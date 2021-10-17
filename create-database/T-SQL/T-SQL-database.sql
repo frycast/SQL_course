@@ -7,6 +7,12 @@ Practice data for the Intro to SQL Course by Daniel Fryer.
 -------------------------------------------------------------------
 -- CREATE IDI_CLEAN DATABASE  -------------------------------------
 -------------------------------------------------------------------
+USE master;
+GO
+
+DROP DATABASE IDI_Clean;
+GO 
+
 CREATE DATABASE IDI_Clean;
 GO -- GO is an T-SQL batch terminator
 USE IDI_Clean;
@@ -324,6 +330,9 @@ GO
 USE master;
 GO
 
+DROP DATABASE IDI_Metadata;
+GO
+
 CREATE DATABASE IDI_Metadata;
 GO
 
@@ -399,6 +408,9 @@ VALUES
 USE master;
 GO
 
+DROP DATABASE Sandpit;
+GO
+
 CREATE DATABASE Sandpit;
 GO
 
@@ -411,7 +423,7 @@ GO
 CREATE TABLE Ape.Colours (
   ColourID int not null,
   ColourName varchar(20) not null,
-  Comments varchar(100) -- I find this Colour strange etc.
+  Comments varchar(100), -- I find this Colour strange etc.
   PRIMARY KEY (ColourID)
 );
 GO
@@ -420,7 +432,7 @@ CREATE TABLE Ape.Friends (
   FirstName varchar(20),
   LastName varchar(20),
   FavColourID int,
-  FOREIGN KEY (FavColourID) REFERENCES Ape.Colours,
+  FOREIGN KEY (FavColourID) REFERENCES Ape.Colours (ColourID),
   PRIMARY KEY (FriendID)
 );
 GO
@@ -436,8 +448,8 @@ GO
 CREATE TABLE Ape.EatingFrom (
   FriendID int not null,
   TreeID int not null,
-  FOREIGN KEY (FriendID) REFERENCES Ape.Friends,
-  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree
+  FOREIGN KEY (FriendID) REFERENCES Ape.Friends (FriendID),
+  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree (TreeID)
 );
 GO
 CREATE TABLE Ape.Banana (
@@ -448,7 +460,7 @@ CREATE TABLE Ape.Banana (
   Ripe bit,
   TreeID int not null,
   Comments varchar(100),
-  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree,
+  FOREIGN KEY (TreeID) REFERENCES Ape.BananaTree (TreeID),
   PRIMARY KEY (BananaID)
 );
 GO
@@ -603,7 +615,7 @@ CREATE TABLE Notes.Pets (
   PetName varchar(20),
   PetDOB date,
   FriendID int not null,
-  FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+  FOREIGN KEY (FriendID) REFERENCES Notes.Friends (FriendID),
   PRIMARY KEY (PetID)
 );
 GO
@@ -612,8 +624,8 @@ CREATE TABLE Notes.Scratched (
   ScratchDate date, 
   ScratchTime time,
   ScratcheeID int not null,
-  FOREIGN KEY (ScratcherID) REFERENCES Notes.Friends,
-  FOREIGN KEY (ScratcheeID) REFERENCES Notes.Friends,
+  FOREIGN KEY (ScratcherID) REFERENCES Notes.Friends (FriendID),
+  FOREIGN KEY (ScratcheeID) REFERENCES Notes.Friends (FriendID),
   PRIMARY KEY (ScratcherID, ScratcheeID, ScratchDate, ScratchTime)
 );
 GO
@@ -621,8 +633,8 @@ CREATE TABLE Notes.PlayCount (
  PetID int not null,
  PlayCounter int,
  FriendID int not null,
- FOREIGN KEY (PetID) REFERENCES Notes.Pets,
- FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+ FOREIGN KEY (PetID) REFERENCES Notes.Pets (PetID),
+ FOREIGN KEY (FriendID) REFERENCES Notes.Friends (FriendID),
  PRIMARY KEY (PetID, FriendID)
 );
 GO
@@ -631,7 +643,7 @@ CREATE TABLE Notes.Passports (
   PptCountry varchar(20),
   PptExpiry date,
   FriendID int,
-  FOREIGN KEY (FriendID) REFERENCES Notes.Friends,
+  FOREIGN KEY (FriendID) REFERENCES Notes.Friends (FriendID),
   PRIMARY KEY (PptNo)
 );
 GO
@@ -646,7 +658,7 @@ CREATE TABLE Notes.Table2 (
   D varchar(20),
   E int not null,
   A int not null,
-  FOREIGN KEY (A) REFERENCES Notes.Table1,
+  FOREIGN KEY (A) REFERENCES Notes.Table1 (A),
   PRIMARY KEY (E)
 );
 GO
@@ -700,7 +712,7 @@ GO
 -- 3218 connects to 2 suburbs
 -- some houses have NULL suburb
 -- 3142 has no corresponding suburb
--- the data type for post_code in suburb is varchar(6), one suburb has postcode '3128x'
+-- the data type for post_code in suburb is varchar(6), one suburb has postcode '33128'
 
 INSERT INTO Notes.Suburbs VALUES
 ('3128' , 'Erebor'   , 0.8),
