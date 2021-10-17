@@ -10,11 +10,12 @@
 USE master;
 GO
 
-DROP DATABASE IDI_Clean;
+DROP DATABASE IF EXISTS IDI_Clean;
 GO 
 
 CREATE DATABASE IDI_Clean;
 GO -- GO is an T-SQL batch terminator
+
 USE IDI_Clean;
 GO
 
@@ -330,7 +331,7 @@ GO
 USE master;
 GO
 
-DROP DATABASE IDI_Metadata;
+DROP DATABASE IF EXISTS IDI_Metadata;
 GO
 
 CREATE DATABASE IDI_Metadata;
@@ -408,7 +409,7 @@ VALUES
 USE master;
 GO
 
-DROP DATABASE Sandpit;
+DROP DATABASE IF EXISTS Sandpit;
 GO
 
 CREATE DATABASE Sandpit;

@@ -1,6 +1,6 @@
 # MySQL create databases guide 
 
-This is a guide to installing your own MySQL database server on Windows or Mac, so you can start using MySQL.
+This is a guide to installing a MySQL server on Windows or Mac, so you can start using MySQL.
 
 This will guide you through **installing the server**, **installing the editor**, and then **creating the databases**.
 
@@ -18,7 +18,7 @@ This will guide you through **installing the server**, **installing the editor**
 9. The 'Type and Networking' menu appears. Click 'Next'.
 10. The 'Authentication Method' menu appears. Click 'Next'.
 11. The 'Accounts and Roles' menu appears. Choose a secure MySQL Root Password, and write it down. You do not need to create any other user accounts. Click 'Next'.
-12. The 'Windows Service' menu appears. Untick the box that says 'Start the MySQL Server at System Startup'. Do not change the other defaults. Click 'Next'.
+12. The 'Windows Service' menu appears. Do not change the defaults. Click 'Next'.
 13. When the configuration is done, click 'Finish'.
 14. Product configuration continues. Take a deep breath. Click 'Next'.
 15. The 'Connect To Server' menu appears. Input the root password that you chose in step 11. Click 'check' and then click 'Next'.
@@ -31,7 +31,7 @@ This will guide you through **installing the server**, **installing the editor**
 
 ### Windows: installing the editor
 
-The above process also installed MySQL Workbench. This is the MySQL editor that we will use in this course.
+The above process also installed MySQL Workbench. This is the MySQL editor we will use.
 
 22. Open MySQL Workbench (e.g., press the 'Windows' key on your keyboard, and type 'MySQL Workbench', then press Enter).
 23. Next to the word 'MySQL Connections', there is a plus symbol. Click it to add a new connection.
@@ -47,7 +47,7 @@ The above process also installed MySQL Workbench. This is the MySQL editor that 
 29. **Right click** [this link to the MySQL database script](https://raw.githubusercontent.com/frycast/SQL_course/master/create-database/MySQL/MySQL-database.sql) and click '**save link as**'. Save the file somewhere you can find it. The filename should be 'MySQL-database.sql'.
 30. In MySQL Workbench click 'File >> Open SQL Script' (or press CTRL+SHIFT+O).
 31. Find the file 'MySQL-database.sql' and open it. 
-32. Press the small lightning bolt symbol to run the script (or press CTRL+SHIFT+ENTER).
+32. In MySQL Workbench press the small lightning bolt symbol to run the script (or press CTRL+SHIFT+ENTER).
 33. The databases have now been created.
 
 ## Mac
@@ -65,7 +65,7 @@ The above process also installed MySQL Workbench. This is the MySQL editor that 
 
 ### Mac: installing the editor
 
-9. Go to the mac app store and search for 'SQL Ace'. Install it (free).
+9. Go to the app store and search for 'SQL Ace'. Install it (free).
 10. Once installed, open SQL Ace. A connection menu appears.
 11. Under 'host' type 'localhost'.
 12. Under 'Password' type the password you chose in step 7.
@@ -75,5 +75,6 @@ The above process also installed MySQL Workbench. This is the MySQL editor that 
 ### Mac: creating the databases
 
 15. Control-click [this link to the MySQL database script](https://raw.githubusercontent.com/frycast/SQL_course/master/create-database/MySQL/MySQL-database.sql) and click '**save link as**'. Save the file somewhere you can find it. The filename should be 'MySQL-database.sql'.
-16. In SQL Ace click 'File >> Open'.
+16. In SQL Ace click 'File >> Open' (or press Command+O).
 17. Find the file 'MySQL-database.sql' and open it.
+18. In SQL Ace, find the drop-down arrow next to 'Run Current', and press it. A drop-down menu opens. Press 'Run All Queries' (alternatively, just press Option+Command+R).
