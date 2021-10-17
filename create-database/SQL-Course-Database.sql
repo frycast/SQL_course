@@ -1,20 +1,20 @@
 -------------------------------------------------------------------
 /*
 Practice data for the Intro to SQL Course by Daniel Fryer.
-You can run this script as a query in a 
-single database (recommended for novice users),
-or you can follow the comments to create 
-separate databases (recommended for advanced users).
 */
 -------------------------------------------------------------------
 
 -------------------------------------------------------------------
--- FOR SEPARATE DATABASES: EXECUTE THESE IN IDI_CLEAN  ------------
+-- CREATE IDI_CLEAN DATABASE  -------------------------------------
 -------------------------------------------------------------------
+CREATE DATABASE IDI_Clean;
+GO -- GO is an T-SQL batch terminator
+USE IDI_Clean;
+GO
 
 -- DIA (Department of Internal Affairs)
 CREATE SCHEMA DIA_clean;
-GO -- GO is an MSSQL batch terminator
+GO 
 
 CREATE TABLE DIA_Clean.births (
   snz_uid                         int            not null UNIQUE, 
@@ -88,9 +88,6 @@ CREATE TABLE security.concordance (
   snz_dol_uid             int,
   snz_in_spine            bit not null);
 GO
-
-
-  
 
 CREATE SCHEMA [data];
 GO
@@ -195,7 +192,7 @@ VALUES
 (8 ,2, 'c', 'exploded lung'     ,3 ),
 (9 ,3, 'c', 'exploded lung'     ,3 ),
 (10,3, 'c', 'exploded lung'     ,3 );
-
+GO
 
 INSERT INTO ACC_Clean.Serious_Injury
 ( snz_uid                                           ,
@@ -223,6 +220,7 @@ VALUES
 (8 ,  28  ,15 ,42 , '20160916', 120    ,0 ,0 ,0 ,0 ,1 ,0 ,8  , 'FD432' ),
 (6 ,  27  ,14 ,42 , '20160918', 130    ,0 ,1 ,0 ,0 ,0 ,0 ,9  , 'HFD432'),
 (3 ,  20  ,12 ,42 , '20160919', 45000  ,1 ,1 ,0 ,0 ,0 ,0 ,10 , 'FGV432');
+GO
 
 INSERT INTO security.concordance (
   snz_uid       , 
@@ -253,6 +251,7 @@ VALUES
 (17 ,NULL  , 34     , NULL, NULL ,7   ,NULL,1),   
 (18 ,76    , 100    , NULL, NULL ,NULL,NULL,0),  
 (19 ,NULL  , 101    , NULL, 32   ,3   ,NULL,0);
+GO
 
 --CREATE TABLE dia_clean.births (
 --  snz_uid                         int            not null UNIQUE, 
@@ -312,19 +311,25 @@ VALUES
 --  dia_civ_partnr2_occupation_text varchar(60)  null);
 --GO
 
-
-INSERT INTO DIA_Clean.civil_unions VALUES (10, 34,    6 ,   23  , 1, 1975, 1, NULL, 1,  1976, 1, NULL);
-INSERT INTO DIA_Clean.civil_unions VALUES (2,  55,    3 ,   123 , 2, 1966, 0, NULL, 6,  1969, 1, NULL);
-INSERT INTO DIA_Clean.civil_unions VALUES (1,  32,    12,   65  , 5, 1977, 0, NULL, 4,  1973, 1, NULL);
-INSERT INTO DIA_Clean.civil_unions VALUES (4,  1,     16,   765 , 5, 1988, 1, NULL, 4,  1989, 0, NULL);
-INSERT INTO DIA_Clean.civil_unions VALUES (7,  67,    18,   76  , 9, 1999, 0, NULL, 12, 1995, 0, NULL);
-
-GO 
+-- INSERT INTO DIA_Clean.civil_unions VALUES (10, 34,    6 ,   23  , 1, 1975, 1, NULL, 1,  1976, 1, NULL);
+-- INSERT INTO DIA_Clean.civil_unions VALUES (2,  55,    3 ,   123 , 2, 1966, 0, NULL, 6,  1969, 1, NULL);
+-- INSERT INTO DIA_Clean.civil_unions VALUES (1,  32,    12,   65  , 5, 1977, 0, NULL, 4,  1973, 1, NULL);
+-- INSERT INTO DIA_Clean.civil_unions VALUES (4,  1,     16,   765 , 5, 1988, 1, NULL, 4,  1989, 0, NULL);
+-- INSERT INTO DIA_Clean.civil_unions VALUES (7,  67,    18,   76  , 9, 1999, 0, NULL, 12, 1995, 0, NULL);
+-- GO 
 
 -----------------------------------------------------------------
--- FOR SEPARATE DATABASES: EXECUTE THESE IN IDI_METADATA --------
+-- CREATE IDI_Metadata DATABASE ---------------------------------
 -----------------------------------------------------------------
+USE master;
 GO
+
+CREATE DATABASE IDI_Metadata;
+GO
+
+USE IDI_Metadata;
+GO
+
 CREATE SCHEMA clean_read_CLASSIFICATIONS;
 GO
 
@@ -354,7 +359,7 @@ VALUES
 (6, 'Other ethnicity');
 
 -----------------------------------------------------------------
--- FOR SEPARATE DATABASES: EXECUTE IN OLDER IDI_Clean REFRESH ---
+-- CREATE OLDER IDI_Clean REFRESH DATABASE ----------------------
 -----------------------------------------------------------------
 
 --INSERT INTO security.concordance (
@@ -389,11 +394,18 @@ VALUES
 --GO
 
 -----------------------------------------------------------------
--- FOR SEPARATE DATABASES: EXECUTE THESE IN PlayPen DATABASE ----
------------------------------------------------------------------
+-- CREATE Sandpit DATABASE --------------------------------------
+-------------------------------------------------------------- ---
+USE master;
+GO
+
+CREATE DATABASE Sandpit;
+GO
+
+USE Sandpit;
+GO
 
 --- APE SCHEMA --
-GO
 CREATE SCHEMA Ape;
 GO
 CREATE TABLE Ape.Colours (
@@ -440,7 +452,6 @@ CREATE TABLE Ape.Banana (
   PRIMARY KEY (BananaID)
 );
 GO
-
 
 INSERT INTO Ape.Colours VALUES
 (1 ,'blue'     , 'similar to sky' ),
@@ -574,11 +585,9 @@ INSERT INTO Ape.Banana VALUES
 (48, 5, '20180927', '20180930', 1, 17, NULL),
 (49, 5, '20180927', '20180930', 1, 18, NULL),
 (50, 3, '20180927', '20180928', 1, 3 , NULL);
-
+GO
 
 --- NOTES SCHEMA --
-
-GO
 CREATE SCHEMA Notes;
 GO
 CREATE TABLE Notes.Friends (
