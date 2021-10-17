@@ -1,11 +1,13 @@
-# A crash course in SQL, with a focus on T-SQL
+# Introduction to SQL, Crash Course
+
 Notes and course material for the Introduction to SQL course, created and taught by [Daniel Fryer](https://danielvfryer.com).
 
-This course is currently being taught twice per year at the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html). 
+This course is currently being extended with a significant amount of new material for the next two deliveries, which are:
 
-The next delivery will be in online format, on Tuesday Feb 23, 2021.
+* Nov 18-19, 2021, for the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html).
+* Nov 23-26, 2021, for the [Statistical Society of Australia](https://statsoc.org.au/event-4525684).
 
-Materials:
+Materials (**CURRENTLY OUTDATED AND UNDER DEVELOPMENT**):
 
 * **Notes:** [click here](SQL-Course-Notes.pdf)   
 * **Day 1 slides:** [click here](SQL-Course-Slides-Day-1.pdf)
