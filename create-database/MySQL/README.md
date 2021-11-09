@@ -69,7 +69,7 @@ The above process also installed MySQL Workbench. This is the MySQL editor we wi
 10. Once installed, open SQL Ace. A connection menu appears.
 11. Under 'host' type 'localhost'.
 12. Under 'Password' type the password you chose in step 7.
-13. Click 'Connect'.
+13. Click 'Connect'. If the connection fails, you may need to restart your mac first.
 14. SQL Ace is now connected.
 
 ### Mac: creating the databases
