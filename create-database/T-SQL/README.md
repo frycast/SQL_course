@@ -18,7 +18,7 @@ This will guide you through **installing the server and editor** and then **crea
 8. The install location window opens. Leave the default install location. Click 'install'.
 9. Once installation completes, click 'Close'.
 10. In Azure Data Studio click 'Create a connection'.
-11. The 'Connection Details' panel opens. Under 'Server' type 'localhost'. Click 'Connect'.
+11. The 'Connection Details' panel opens. Make sure the Connection type is 'Microsoft SQL Server' and the Authentication type is 'Windows Authentication'. For Server, type 'localhost'. Leave the username and password blank. Click 'Connect'.
 12. Azure Data Studio is now connected to your SQL Server.
 
 ### Windows: creating the databases
