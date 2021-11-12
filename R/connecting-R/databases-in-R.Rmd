@@ -148,7 +148,7 @@ library(RMySQL)
 Then, use the following to connect:
 
 ```{r, eval=FALSE}
-con <- dbConnect(MySQL(), 
+con <- DBI::dbConnect(RMySQL::MySQL(), 
                  host = "write_host_address_here", 
                  port = 0000, # Replace this number with the actual port number 
                  dbname = "write_database_name_here", 
