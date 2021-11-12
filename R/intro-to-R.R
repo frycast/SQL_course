@@ -1,5 +1,5 @@
 message("
-This script aims to get you acquainted with R for the first time. 
+This R script aims to get you acquainted with R for the first time. 
 
 Prerequisites are that you:
 
@@ -11,7 +11,7 @@ If you are a student in my course, feel free to contact me any time for help!
 
 Each comment below explains what the code underneath it is doing.
 
-Read each comment, and then execute the code below the comment.
+Read each comment, and then execute the code below the comment (in RStudio).
  
 ")
 
