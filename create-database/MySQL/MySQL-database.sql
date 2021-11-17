@@ -648,6 +648,17 @@ CREATE TABLE Notes_Suburbs (
   PRIMARY KEY (post_code, suburb_name)
 );
 
+CREATE TABLE Notes_Numbers (
+  Num int,
+  NumString varchar(10)
+);
+
+INSERT INTO Notes_Numbers VALUES 
+(111, '111'),
+(31, '31'),
+(32, '32'),
+(211, '211');
+
 INSERT INTO Notes_Houses VALUES 
 ('H0001', 'Millard Claassen'    , '7235 East Van Dyke St'   ,  '3128', 300000),
 ('H0002', 'Jamie Pew'           , '8914 South Sunnyslope Dr',  '3128', 150000),
@@ -691,7 +702,11 @@ INSERT INTO Notes_Scratched VALUES
 (1, '20180905', '12:00', 2),
 (1, '20180905', '12:30', 3),
 (2, '20180906', '11:00', 1),
-(3, '20180907', '10:00', 1);
+(3, '20180907', '10:00', 1),
+(2, '20180801', '16:15', 1),
+(2, '20180801', '13:00', 3),
+(1, '20170214', '04:30', 2),
+(3, '20200128', '18:00', 1);
 
 INSERT INTO Notes_PlayCount VALUES
 (1, 3, 1),
@@ -733,7 +748,7 @@ INSERT INTO Notes_RandomPeople VALUES
 ('Jack Monroe', 'NB', 30);
 
 -- ---------------------------------------------------------------
--- CREATE Sandpit DATABASE ---------------------------------------
+-- CREATE Analytics DATABASE -------------------------------------
 -- ---------------------------------------------------------------
 
 DROP DATABASE IF EXISTS Analytics;
