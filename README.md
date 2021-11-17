@@ -17,7 +17,7 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 
 ## Notes and slides
 
-Follow the links for the notes and slides:
+Follow the links for the textbook and slides:
 
-* [Course notes (SSA Workshop)](textbook-and-slides/SQL_Course_Textbook.pdf)
+* [Course textbook (SSA Workshop)](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides (SSA Workshop)](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
