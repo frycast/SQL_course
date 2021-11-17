@@ -2,7 +2,7 @@
 
 Notes and course material will be uploaded here, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
-This course is currently being extended with a whole bunch of new material for the next two deliveries, which are:
+The next two deliveries are:
 
 * Nov 18-19, 2021, for the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html)
 * Nov 23-26, 2021, for the [Statistical Society of Australia](https://statsoc.org.au/event-4525684)
@@ -15,5 +15,9 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 * **Set up your database with MySQL (easiest for macOS):** [click here](create-database/MySQL/README.md)
 * **Connecting from other languages guide:** [click here](other-languages.md)
 
+## Notes and slides
 
+Follow the links for the notes and slides:
 
+* [Course notes (SSA Workshop)](textbook-and-slides/SQL_Course_Textbook.pdf)
+* [Day 1 slides (SSA Workshop)](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
