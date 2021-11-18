@@ -699,6 +699,23 @@ CREATE TABLE Notes.Numbers (
 );
 GO
 
+CREATE TABLE Notes.EduStudy (
+  Id varchar(6) not null,
+  Income varchar(8),
+  Education int,
+  PRIMARY KEY (Id)
+);
+GO
+
+INSERT INTO Notes.EduStudy VALUES 
+('EI13', 'low', 5),
+('EI122', 'low', 1),
+('EI281', 'low-mid', 4),
+('EI3332', 'middle', 3),
+('EI4751', 'high-mid', 3),
+('EI12', 'high', 2);
+GO
+
 INSERT INTO Notes.Numbers VALUES 
 (111, '111'),
 (31, '31'),

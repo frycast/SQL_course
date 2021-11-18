@@ -653,6 +653,21 @@ CREATE TABLE Notes_Numbers (
   NumString varchar(10)
 );
 
+CREATE TABLE Notes_EduStudy (
+  Id varchar(6) not null,
+  Income varchar(8),
+  Education int,
+  PRIMARY KEY (Id)
+);
+
+INSERT INTO Notes_EduStudy VALUES 
+('EI13', 'low', 5),
+('EI122', 'low', 1),
+('EI281', 'low-mid', 4),
+('EI3332', 'middle', 3),
+('EI4751', 'high-mid', 3),
+('EI12', 'high', 2);
+
 INSERT INTO Notes_Numbers VALUES 
 (111, '111'),
 (31, '31'),
