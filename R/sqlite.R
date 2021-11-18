@@ -94,6 +94,9 @@ DBI::dbDisconnect(con)
 # For that, you can download DB Browser:
 # https://sqlitebrowser.org/dl/
 
+# After installing DB browser, you may have to choose "open with"
+# on the "MyDB.sqlite" file, and navigate to your programs directory
+# to find DB Browser to open it.
 
 # Batched queries ---------------------------------------------------------
 
