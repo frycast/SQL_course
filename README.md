@@ -21,3 +21,4 @@ Follow the links for the textbook and slides:
 
 * [Course textbook (SSA Workshop)](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides (SSA Workshop)](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
+* [Day 2 slides (SSA Workshop)](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
