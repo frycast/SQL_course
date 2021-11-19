@@ -86,6 +86,19 @@ result <- DBI::dbGetQuery(
 # view the result
 result
 
+# A neat trick is to use string interpolation to edit the queries 
+# with variables from your R environment:
+# See https://stringr.tidyverse.org/reference/str_interp.html
+for (next_cyl in c(4,6,8)) {
+  res <- DBI::dbGetQuery(con, stringr::str_interp("
+    SELECT * 
+    FROM mtcars
+    WHERE cyl = ${next_cyl}                    
+  "))
+  cat("\nResults for cyl = ", next_cyl, "\n")
+  print(res)
+}
+
 # disconnect
 DBI::dbDisconnect(con)
 
@@ -104,7 +117,11 @@ DBI::dbDisconnect(con)
 con <- DBI::dbConnect(RSQLite::SQLite(), "MyDB.sqlite")
 
 # Send a query but don't retrieve the results yet
-rs <- DBI::dbSendQuery(con, 'SELECT * FROM mtcars')
+rs <- DBI::dbSendQuery(con, "
+  SELECT *
+  FROM mtcars
+")
+rs
 
 # Retrieve the first 3 results
 df <- DBI::dbFetch(rs, n = 3)
