@@ -196,7 +196,6 @@ DBI::dbDisconnect(con)
 # and save it in your working directory.
 # https://github.com/frycast/SQL_course/raw/master/R/Sandpit.sqlite
 
-
 # connect to Sandpit
 con <- DBI::dbConnect(RSQLite::SQLite(), "Sandpit.sqlite")
 
