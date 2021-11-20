@@ -11,7 +11,7 @@ USE master;
 GO
 
 DROP DATABASE IF EXISTS IDI_Clean;
-GO 
+GO
 
 CREATE DATABASE IDI_Clean;
 GO -- GO is an T-SQL batch terminator
