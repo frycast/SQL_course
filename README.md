@@ -4,7 +4,7 @@ Notes and course material will be uploaded here, for the Introduction to SQL cou
 
 The next delivery is:
 
-* Nov 18-19, 2021, for the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html)
+* Nov 22-25, 2021, for the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html)
 
 ## Set up guides
 
