@@ -1,4 +1,4 @@
-# Introduction to SQL, Crash Course
+# Introduction to SQL
 
 Notes and course material will be uploaded here, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
