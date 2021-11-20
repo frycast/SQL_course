@@ -14,21 +14,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Setting up and connecting to database servers can get tricky, with all the authentication methods and security measures, as well as hardware differences, port configurations, driver requirements, and so on. This goes to show that much of SQL is still the domain of engineers and IT professionals.
+Setting up and connecting to SQL servers can get tricky, with all the authentication methods and security measures, hardware differences, etc.
  
-With this guide, I'm somewhat ambitiously aiming to make it relatively easy for a newcomer (with basic R knowledge) to do all of the following:
+With this guide, I'm aiming to make this relatively easy, focusing on MySQL and T-SQL. We will learn to:
 
 1. Create and connect to a local server.
 2. Connect to a remote database.
-3. Create and use a (serverless) SQLite database.
-
-We'll learn how to do numbers 1 and 2 in both T-SQL and MySQL. 
-
-Number 3, SQLite, is a lightweight dialect of SQL that is a great way to, for example, store multiple CSVs in one single file (as separate SQL tables), that can then be queried using SQL code, without needing a server! SQLite is great, because it's a full-featured, highly reliable database engine and, being a single file (and serverless), the database is really easy to set up and share.
 
 ## 1. Create and connect to a local server
 
-Before connecting to a local database server in R, you should create the server, install a popular SQL code editor, and insert some practice data. For this, I've created the two guides linked below. Please go through one of them before continuing.
+Before connecting to a local server in R, you should create the server, install a popular SQL code editor, and insert some practice data. For this, I've created the two guides linked below. Please go through one of them before continuing.
 
 * [For T-SQL installation (easier on windows) click here](https://github.com/frycast/SQL_course/tree/master/create-database/T-SQL) 
 
@@ -38,7 +33,7 @@ You'll also need to have R and RStudio set up on your computer. Here is a good t
 
 * [Click here for the ModernDive R installation tutorial](https://moderndive.netlify.app/1-getting-started.html#installing)
 
-Once the SQL server and R are both set up, sometimes the rest will go really smoothly, but sometimes it won't. If you run into trouble, you might need to paste the error message into a search engine and browse through forums to find some suggestions. If you're a student taking one of my SQL courses, you can contact me any time for help!
+Once the SQL server and R are both set up, sometimes the rest will go really smoothly, but sometimes it won't. If you run into trouble, you might need to use a search engine and/or browse through forums to find some suggestions. If you're a student taking one of my SQL courses, you can contact me any time for help!
 
 #### Connect to a local MySQL server
 
@@ -58,7 +53,7 @@ con <- DBI::dbConnect(
   host = "localhost")
 ```
 
-If the above causes an error that mentions `caching_sha2_password could not be loaded`, then connect to localhost using MySQL Workbench (or Sequel Ace, or whichever SQL editor you have installed), and run the SQL code below. *Warning:* this creates a very insecure user account, so you should never do this on a server that contains is open to the public and contains sensitive or private data. I'm assuming you're setting up this database on your home computer just to experiment with fake data.
+If the above causes an error that mentions `caching_sha2_password could not be loaded`, then connect to localhost using MySQL Workbench (or Sequel Ace, or whichever SQL editor you have installed), and run the SQL code below. *Warning:* this creates a very insecure user account, so you should never do this on a server that is open to the public and contains sensitive or private data. I'm assuming you're setting up this database on your home computer just to experiment with fake data.
 
 ```{SQL, eval=FALSE}
 CREATE USER 'R'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
@@ -134,7 +129,7 @@ DBI::dbDisconnect(con)
 
 ## 2. Connect to a remote server
 
-Connecting to a remote database means you can avoid the hassle of installing a local MySQL or T-SQL server. You will need some connection details specific to the database you plan to connect to.
+Connecting to a remote database means you can avoid the hassle of installing a local MySQL or T-SQL server. You will need some connection details specific to the database you plan to connect to. The types of details you need depend on whether you're connecting to a MySQL or T-SQL server.
 
 #### Connect to a remote MySQL server
 
@@ -200,6 +195,3 @@ Guidelines for using the connection are given in the R chapter of the course not
 ```{r, eval=FALSE}
 DBI::dbDisconnect(con)
 ```
-
-## 3. Create and use a (serverless) SQLite database
-

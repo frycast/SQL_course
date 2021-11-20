@@ -146,19 +146,16 @@ a.sourceLine {
 <article class="post-content">
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Setting up and connecting to database servers can get tricky, with all the authentication methods and security measures, as well as hardware differences, port configurations, driver requirements, and so on. This goes to show that much of SQL is still the domain of engineers and IT professionals.</p>
-<p>With this guide, I’m somewhat ambitiously aiming to make it relatively easy for a newcomer (with basic R knowledge) to do all of the following:</p>
+<p>Setting up and connecting to SQL servers can get tricky, with all the authentication methods and security measures, hardware differences, etc.</p>
+<p>With this guide, I’m aiming to make this relatively easy, focusing on MySQL and T-SQL. We will learn to:</p>
 <ol style="list-style-type: decimal">
 <li>Create and connect to a local server.</li>
 <li>Connect to a remote database.</li>
-<li>Create and use a (serverless) SQLite database.</li>
 </ol>
-<p>We’ll learn how to do numbers 1 and 2 in both T-SQL and MySQL.</p>
-<p>Number 3, SQLite, is a lightweight dialect of SQL that is a great way to, for example, store multiple CSVs in one single file (as separate SQL tables), that can then be queried using SQL code, without needing a server! SQLite is great, because it’s a full-featured, highly reliable database engine and, being a single file (and serverless), the database is really easy to set up and share.</p>
 </div>
 <div id="create-and-connect-to-a-local-server" class="section level2">
 <h2>1. Create and connect to a local server</h2>
-<p>Before connecting to a local database server in R, you should create the server, install a popular SQL code editor, and insert some practice data. For this, I’ve created the two guides linked below. Please go through one of them before continuing.</p>
+<p>Before connecting to a local server in R, you should create the server, install a popular SQL code editor, and insert some practice data. For this, I’ve created the two guides linked below. Please go through one of them before continuing.</p>
 <ul>
 <li><p><a href="https://github.com/frycast/SQL_course/tree/master/create-database/T-SQL">For T-SQL installation (easier on windows) click here</a></p></li>
 <li><p><a href="https://github.com/frycast/SQL_course/tree/master/create-database/MySQL">For MySQL installation (easier on macOS) click here</a></p></li>
@@ -167,7 +164,7 @@ a.sourceLine {
 <ul>
 <li><a href="https://moderndive.netlify.app/1-getting-started.html#installing">Click here for the ModernDive R installation tutorial</a></li>
 </ul>
-<p>Once the SQL server and R are both set up, sometimes the rest will go really smoothly, but sometimes it won’t. If you run into trouble, you might need to paste the error message into a search engine and browse through forums to find some suggestions. If you’re a student taking one of my SQL courses, you can contact me any time for help!</p>
+<p>Once the SQL server and R are both set up, sometimes the rest will go really smoothly, but sometimes it won’t. If you run into trouble, you might need to use a search engine and/or browse through forums to find some suggestions. If you’re a student taking one of my SQL courses, you can contact me any time for help!</p>
 <div id="connect-to-a-local-mysql-server" class="section level4">
 <h4>Connect to a local MySQL server</h4>
 <p>First, run the code below to install the required R package:</p>
@@ -178,7 +175,7 @@ a.sourceLine {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">dbname =</span> <span class="st">&quot;Sandpit&quot;</span>, </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">host =</span> <span class="st">&quot;localhost&quot;</span>)</span></code></pre></div>
-<p>If the above causes an error that mentions <code>caching_sha2_password could not be loaded</code>, then connect to localhost using MySQL Workbench (or Sequel Ace, or whichever SQL editor you have installed), and run the SQL code below. <em>Warning:</em> this creates a very insecure user account, so you should never do this on a server that contains is open to the public and contains sensitive or private data. I’m assuming you’re setting up this database on your home computer just to experiment with fake data.</p>
+<p>If the above causes an error that mentions <code>caching_sha2_password could not be loaded</code>, then connect to localhost using MySQL Workbench (or Sequel Ace, or whichever SQL editor you have installed), and run the SQL code below. <em>Warning:</em> this creates a very insecure user account, so you should never do this on a server that is open to the public and contains sensitive or private data. I’m assuming you’re setting up this database on your home computer just to experiment with fake data.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="fu">USER</span> <span class="st">&#39;R&#39;</span>@<span class="st">&#39;localhost&#39;</span> <span class="kw">IDENTIFIED</span> <span class="kw">WITH</span> mysql_native_password <span class="kw">BY</span> <span class="st">&#39;password&#39;</span>;</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">ALL</span> <span class="kw">PRIVILEGES</span> <span class="kw">ON</span> <span class="op">*</span>.<span class="op">*</span> <span class="kw">TO</span> <span class="st">&#39;R&#39;</span>@<span class="st">&#39;localhost&#39;</span> <span class="kw">WITH</span> <span class="kw">GRANT</span> <span class="kw">OPTION</span>;</span></code></pre></div>
 <p>Once you’ve run the above SQL code, you should be able to connect with:</p>
@@ -220,14 +217,14 @@ a.sourceLine {
 </div>
 <div id="connect-to-a-remote-server" class="section level2">
 <h2>2. Connect to a remote server</h2>
-<p>Connecting to a remote database means you can avoid the hassle of installing a local MySQL or T-SQL server. You will need some connection details specific to the database you plan to connect to.</p>
+<p>Connecting to a remote database means you can avoid the hassle of installing a local MySQL or T-SQL server. You will need some connection details specific to the database you plan to connect to. The types of details you need depend on whether you’re connecting to a MySQL or T-SQL server.</p>
 <div id="connect-to-a-remote-mysql-server" class="section level4">
 <h4>Connect to a remote MySQL server</h4>
 <p>First, run the code below to install the required R package:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RMySQL&quot;</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RMySQL)</span></code></pre></div>
 <p>Then, use the following to connect:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">MySQL</span>(), </span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RMySQL<span class="sc">::</span><span class="fu">MySQL</span>(), </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">&quot;write_host_address_here&quot;</span>, </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">0000</span>, <span class="co"># Replace this number with the actual port number </span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;write_database_name_here&quot;</span>, </span>
@@ -256,9 +253,6 @@ a.sourceLine {
 <p>Guidelines for using the connection are given in the R chapter of the course notes. Once you’re done using the connection, remember to disconnect:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
 </div>
-</div>
-<div id="create-and-use-a-serverless-sqlite-database" class="section level2">
-<h2>3. Create and use a (serverless) SQLite database</h2>
 </div>
 </article>
 </div>
