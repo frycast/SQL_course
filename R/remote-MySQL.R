@@ -2,7 +2,7 @@ install.packages("RMySQL")
 library(RMySQL)
 
 # Choose the database name and password
-database <- "Analytics"
+database <- "Sandpit"
 password <- "insert_password_here"
 
 # Connect to the database
@@ -16,13 +16,17 @@ con <- DBI::dbConnect(RMySQL::MySQL(),
 # List the tables
 DBI::dbListTables(con)
 
+##### USE DATABASE HERE #######
 
-##### INSERT CODE HERE #######
+library(dbplyr)
+library(dplyr)
+d1 <- tbl(con, "Notes_Friends")
+d2 <- tbl(con, "Notes_Pets")
 
-
+# See:
+# https://dbplyr.tidyverse.org/
 
 ##############################
-
 
 # Disconnect
 DBI::dbDisconnect(con)
