@@ -16,10 +16,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Setting up and connecting to SQL servers can get tricky, with all the authentication methods and security measures, hardware differences, etc.
  
-With this guide, I'm aiming to make this relatively easy, focusing on MySQL and T-SQL. We will learn to:
+This is a general guide, for both MySQL and T-SQL. We will learn to:
 
 1. Create and connect to a local server.
 2. Connect to a remote database.
+
+If you're here to get connected to a remote MySQL database, 
+then I've prepared an R script to get you started.
+[Click here to access the MySQL connection script](./remote-MySQL.R).
 
 ## 1. Create and connect to a local server
 

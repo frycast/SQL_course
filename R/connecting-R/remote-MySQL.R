@@ -1,3 +1,4 @@
+# Install and load RMySQL
 install.packages("RMySQL")
 library(RMySQL)
 
