@@ -47,7 +47,7 @@ anscombe_tidy <- pivot_longer(
 anscombe_tidy
 
 ## Figuring out the rest of this example is an advanced exercise
-## It should not be attempted by a new R programmer.
+## (not usually suitable for new R programmers).
 
 # Plot the data with lines of best fit
 library(ggplot2)

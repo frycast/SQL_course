@@ -4,7 +4,23 @@
 install.packages("RSQLite")
 library(RSQLite)
 
-# Connect and disconnect --------------------------------------------------
+# Connect to the Sandpit database -----------------------------------------
+
+# If the SQLite Sandpit database is not already in your working directory,
+# then first download it from the link below,
+# and save it in your working directory.
+# https://github.com/frycast/SQL_course/raw/master/R/Sandpit.sqlite
+
+# connect to Sandpit
+con <- DBI::dbConnect(RSQLite::SQLite(), "Sandpit.sqlite")
+
+# List all the tables in Sandpit
+DBI::dbListTables(con)
+
+# disconnect
+DBI::dbDisconnect(con)
+
+# Create a new empty database --------------------------------------------
 
 # create (or connect to) the database
 con <- DBI::dbConnect(RSQLite::SQLite(), "MyDB.sqlite")
@@ -12,7 +28,7 @@ con <- DBI::dbConnect(RSQLite::SQLite(), "MyDB.sqlite")
 # disconnect
 DBI::dbDisconnect(con)
 
-# Connect and use  --------------------------------------------------------
+# Save data to a database  -----------------------------------------------
 
 # We'll save the built-in mtcars and iris datasets to a SQLite database
 mtcars
@@ -60,7 +76,7 @@ mtcars_q4 <- mtcars_con %>%
     mpg_max = max(mpg, na.rm=T), 
     cyl_mean = mean(cyl, na.rm=T)) %>% 
   dplyr::filter(cyl_mean <= 5)
-  
+
 # look at the SQL code that dplyr generated
 mtcars_q1 %>% show_query()
 mtcars_q2 %>% show_query()
@@ -104,12 +120,14 @@ DBI::dbDisconnect(con)
 
 # Side note:
 # You may want to browse the database we created, outside of R.
-# For that, you can download DB Browser:
+# Assuming the database file ("MyDB.sqlite") is saved on your computer
+# you can browse it with DB Browser (a great open-source app).
+# Download DB Browser here:
 # https://sqlitebrowser.org/dl/
 
 # After installing DB browser, you may have to choose "open with"
-# on the "MyDB.sqlite" file, and navigate to your programs directory
-# to find DB Browser to open it.
+# on the "MyDB.sqlite" file, and then navigate to your programs/apps directory
+# to find DB Browser and open it.
 
 # Batched queries ---------------------------------------------------------
 
@@ -155,7 +173,7 @@ DBI::dbClearResult(rs)
 # disconnect
 DBI::dbDisconnect(con)
 
-# Writing csvs to a database ----------------------------------------------
+# Saving CSV files to a database -----------------------------------------
 
 # create (or connect to) the database
 con <- DBI::dbConnect(RSQLite::SQLite(), "MyDB.sqlite")
@@ -184,22 +202,6 @@ for (f in csv_filenames) {
 }
 
 # List all the tables in our database
-DBI::dbListTables(con)
-
-# disconnect
-DBI::dbDisconnect(con)
-
-
-# Connect to the Sandpit database -----------------------------------------
-
-# First download the sqlite Sandpit database from the link below,
-# and save it in your working directory.
-# https://github.com/frycast/SQL_course/raw/master/R/Sandpit.sqlite
-
-# connect to Sandpit
-con <- DBI::dbConnect(RSQLite::SQLite(), "Sandpit.sqlite")
-
-# List all the tables in Sandpit
 DBI::dbListTables(con)
 
 # disconnect
