@@ -396,10 +396,10 @@ CREATE TABLE Ape_Friends (
 
 CREATE TABLE Ape_BananaTree (
   TreeID int not null,
-  Height float,
+  Height decimal(5,2),
   YearPlanted int,
   MonthPlanted int,
-  Width float,
+  Width decimal(5,2),
   PRIMARY KEY (TreeID)
 );
 
@@ -637,14 +637,14 @@ CREATE TABLE Notes_Houses (
   house_owner   varchar(50),
   house_address varchar(200),
   post_code     varchar(4),
-  house_price   Float,
+  house_price   decimal(10,2),
   PRIMARY KEY (house_ID)
 );
 
 CREATE TABLE Notes_Suburbs (
   post_code varchar(5) not null,
   suburb_name varchar(100) not null,
-  vaccination_rate Float,
+  vaccination_rate decimal(3,2),
   PRIMARY KEY (post_code, suburb_name)
 );
 
@@ -659,6 +659,20 @@ CREATE TABLE Notes_EduStudy (
   Education int,
   PRIMARY KEY (Id)
 );
+
+CREATE TABLE Notes_Orders (
+OrderID int not null,
+Item varchar(30),
+Price decimal(5,2),
+OrderDT datetime,
+PRIMARY KEY (OrderID)
+);
+
+INSERT INTO Notes_Orders VALUES
+(1, 'Boiled leaves'   , 2.99 , '2021-12-31 15:13:00'), 
+(2, 'Bow wow'         , 15   , '2021-12-31 15:34:00'), 
+(3, 'Cackleberry stew', 32.55, '2022-01-01 09:32:00'), 
+(4, 'Mug of murk'     , 4.40 , '2022-01-01 10:16:00');
 
 INSERT INTO Notes_EduStudy VALUES 
 ('EI13', 'low', 5),
