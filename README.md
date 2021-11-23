@@ -33,3 +33,5 @@ For beginner R programmers, day 4 may move a bit fast. This tutorial will help y
 If this is the first time you've used RStudio, I've created a video for you to guide you through using the above script.
 
 * [Brief intro to RStudio (video)](https://youtu.be/rdcVS7CrWPw)
+
+To be fully prepared for day 4, I suggest you complete all lessons from lesson 1 (Basic Building Blocks), to lesson 9 (Functions), of the Intro to R course, within the Swirl tutorial. You will see these lessons when you start the Swirl tutorial (also explained in the video linked above).
