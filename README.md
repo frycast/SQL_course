@@ -22,3 +22,9 @@ The textbook and slides will be linked below as they become ready.
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
 * [Day 3 slides](textbook-and-slides/SQL_Course_Slides_Day_3.pdf)
+
+## Beginner R tutorial
+
+For beginner R programmers, day 4 may move a bit fast. This tutorial will help you get prepared (or brush up). Right-click (or control-click) the link and choose 'save link as'. Then, open the script in RStudio.
+
+* [Beginner R tutorial (R script)](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
