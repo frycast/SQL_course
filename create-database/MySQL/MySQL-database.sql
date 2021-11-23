@@ -72,6 +72,10 @@ CREATE TABLE DIA_Clean_civil_unions (
   dia_civ_partnr2_sex_snz_code    varchar(100) null,
   dia_civ_partnr2_occupation_text varchar(60)  null);
 
+-- Linkage process information.
+-- One row for each snz_uid.
+-- Includes links between individual identifiers.
+-- Most values are NULL.
 CREATE TABLE security_concordance (
   snz_uid                 int not null UNIQUE, 
   snz_dia_uid             int,
@@ -80,17 +84,58 @@ CREATE TABLE security_concordance (
   snz_cen_uid             int,
   snz_acc_uid             int,
   snz_dol_uid             int,
-  snz_in_spine            bit not null);
+  snz_spine_uid           int);
 
+INSERT INTO security_concordance VALUES
+(10 ,34    , 0      , NULL, NULL ,29  ,NULL,100 ),  
+(2  ,55    , 1      , NULL, NULL ,23  ,NULL,143 ),    
+(1  ,32    , 2      , NULL, NULL ,22  ,NULL,412 ),  
+(4  ,1     , 3      , NULL, NULL ,21  ,NULL,563 ),   
+(7  ,67    , 4      , NULL, NULL ,26  ,NULL,213 ),   
+(9  ,NULL  , 5      , NULL, NULL ,25  ,NULL,553 ),  
+(5  ,32    , 6      , NULL, NULL ,24  ,NULL,153 ),  
+(8  ,43    , 7      , NULL, NULL ,28  ,NULL,562 ),   
+(6  ,23    , 8      , NULL, NULL ,27  ,NULL,643 ),   
+(3  ,123   , 9      , NULL, NULL ,20  ,NULL,142 ),   
+(11 ,NULL  , 7      , NULL, NULL ,NULL,NULL,154 ),   
+(12 ,65    , 5      , NULL, NULL ,NULL,NULL,853 ),  
+(13 ,NULL  , 10     , NULL, NULL ,6   ,NULL,128 ),   
+(14 ,NULL  , 12     , NULL, NULL ,1   ,NULL,732 ),   
+(15 ,NULL  , 43     , NULL, NULL ,NULL,NULL,129 ),  
+(16 ,765   , 44     , NULL, NULL ,NULL,NULL,923 ),  
+(17 ,NULL  , 34     , NULL, NULL ,7   ,NULL,132 ),   
+(18 ,76    , 100    , NULL, NULL ,NULL,NULL,731 ),  
+(19 ,NULL  , 101    , NULL, 32   ,3   ,NULL,766 ),
+(20 ,NULL  , NULL   , 1   , NULL ,31  ,NULL,NULL),
+(21 ,NULL  , NULL   , 2   , NULL ,32  ,NULL,NULL),
+(22 ,NULL  , NULL   , 3   , NULL ,33  ,NULL,NULL),
+(23 ,NULL  , NULL   , 4   , NULL ,34  ,NULL,NULL),
+(24 ,NULL  , NULL   , 5   , NULL ,35  ,NULL,NULL),
+(25 ,NULL  , 15     , NULL, NULL ,36  ,NULL,NULL),
+(26 ,NULL  , 16     , NULL, NULL ,37  ,NULL,NULL),
+(27 ,NULL  , 17     , NULL, NULL ,38  ,NULL,NULL),
+(28 ,NULL  , 18     , NULL, NULL ,39  ,NULL,NULL),
+(29 ,NULL  , 19     , NULL, NULL ,41  ,NULL,NULL),
+(30 ,NULL  , 20     , NULL, NULL ,42  ,NULL,NULL),
+(31 ,NULL  , 21     , NULL, NULL ,43  ,NULL,NULL),
+(32 ,NULL  , 22     , NULL, NULL ,44  ,NULL,NULL),
+(33 ,NULL  , 23     , NULL, NULL ,NULL,1   ,NULL),
+(34 ,NULL  , 42     , NULL, NULL ,NULL,2   ,NULL),
+(36 ,NULL  , 65     , NULL, NULL ,NULL,3   ,NULL),
+(37 ,NULL  , 54     , NULL, NULL ,NULL,NULL,NULL),
+(38 ,NULL  , 32     , NULL, NULL ,NULL,NULL,NULL);
+
+-- Contains start and end of overseas spells.
 -- Researchers may wish to exclude people who
--- were overseas
+-- were overseas. 
 CREATE TABLE data_person_overseas_spell (
   snz_uid                 int not null UNIQUE, 
   pos_applied_date        date null,
   pos_ceased_date         date null);
 
+-- One row for each snz_uid.
 -- The column with 0 or 1 indicates
--- if an individual is in the spine
+-- if an individual is in the spine.
 CREATE TABLE data_personal_detail (
   snz_uid int not null UNIQUE,
   snz_in_spine int not null
@@ -98,7 +143,8 @@ CREATE TABLE data_personal_detail (
 
 -- In this table there should be
 -- one row for each unique combination
--- of snz_uid and year
+-- of snz_uid and year.
+-- A subset of the people in the spine.
 CREATE TABLE data_snz_res_pop (
   snz_uid int not null UNIQUE,
   year int not null
@@ -129,7 +175,7 @@ CREATE TABLE data_address_notification (
   snz_uid int not null UNIQUE, 
   dummy1 int,
   dummy2 int,
-  dummy3 int);
+  dummy3 int);  
 
 CREATE TABLE ACC_Clean_Medical_Codes (
   snz_acc_claim_uid int not null,
@@ -138,6 +184,18 @@ CREATE TABLE ACC_Clean_Medical_Codes (
   acc_med_read_code_text varchar(255),
   acc_med_injury_precedence_nbr int not null
 );
+
+INSERT INTO ACC_Clean_Medical_Codes VALUES
+(1 ,2, 'a', 'broken leg'        ,1 ),
+(2 ,3, 'b', 'popped out eyeball',2 ),
+(3 ,1, 'a', 'broken leg'        ,1 ),
+(4 ,2, 'a', 'broken leg'        ,1 ),
+(5 ,3, 'b', 'popped out eyeball',1 ),
+(6 ,4, 'b', 'popped out eyeball',2 ),
+(7 ,2, 'a', 'broken leg'        ,2 ),
+(8 ,2, 'c', 'exploded lung'     ,3 ),
+(9 ,3, 'c', 'exploded lung'     ,3 ),
+(10,3, 'c', 'exploded lung'     ,3 );
 
 CREATE TABLE ACC_Clean_Serious_Injury (
   snz_uid int not null,
@@ -156,147 +214,37 @@ CREATE TABLE ACC_Clean_Serious_Injury (
   acc_cla_meshblock_code varchar(7) null
 );
 
-
-INSERT INTO ACC_Clean_Medical_Codes
-( snz_acc_claim_uid,
-  acc_med_injury_count_nbr,
-  acc_med_read_code,
-  acc_med_read_code_text,
-  acc_med_injury_precedence_nbr)
-VALUES
-(1 ,2, 'a', 'broken leg'        ,1 ),
-(2 ,3, 'b', 'popped out eyeball',2 ),
-(3 ,1, 'a', 'broken leg'        ,1 ),
-(4 ,2, 'a', 'broken leg'        ,1 ),
-(5 ,3, 'b', 'popped out eyeball',1 ),
-(6 ,4, 'b', 'popped out eyeball',2 ),
-(7 ,2, 'a', 'broken leg'        ,2 ),
-(8 ,2, 'c', 'exploded lung'     ,3 ),
-(9 ,3, 'c', 'exploded lung'     ,3 ),
-(10,3, 'c', 'exploded lung'     ,3 );
-
-INSERT INTO ACC_Clean_Serious_Injury
-( snz_uid                                           ,
-  snz_acc_uid                                       ,
-  snz_employee_ird_uid                              ,
-  snz_employer_ird_uid                              ,
-  acc_cla_accident_date                             ,
-  acc_cla_claim_costs_to_date_ex_gst_amt            ,
-  acc_cla_ethnic_grp1_snz_uid                       ,
-  acc_cla_ethnic_grp2_snz_uid                       ,
-  acc_cla_ethnic_grp3_snz_uid                       ,
-  acc_cla_ethnic_grp4_snz_uid                       ,
-  acc_cla_ethnic_grp5_snz_uid                       ,
-  acc_cla_ethnic_grp6_snz_uid                       ,
-  snz_acc_claim_uid                                 ,
-  acc_cla_meshblock_code                            )
-VALUES
-(10,  29  ,12 ,42 , '20160901', 15000  ,1 ,0 ,0 ,1 ,0 ,1 ,1  , 'MZ321' ),
-(2 ,  23  ,14 ,32 , '20160912', 12000  ,1 ,0 ,0 ,0 ,0 ,0 ,2  , 'KL653' ),
-(1 ,  22  ,17 ,32 , '20160913', 130000 ,0 ,1 ,0 ,0 ,0 ,0 ,3  , 'DF24'  ),
-(4 ,  21  ,18 ,54 , '20160923', 132000 ,0 ,1 ,0 ,0 ,0 ,0 ,4  , 'EW321' ),
-(7 ,  26  ,12 ,65 , '20160902', 23000  ,0 ,1 ,0 ,0 ,0 ,0 ,5  , 'EW321' ),
-(9 ,  25  ,19 ,65 , '20160921', 32000  ,0 ,0 ,0 ,1 ,0 ,0 ,6  , 'KL432' ),
-(5 ,  24  ,19 ,23 , '20160918', 500    ,1 ,0 ,0 ,0 ,0 ,0 ,7  , 'EW234' ),
-(8 ,  28  ,15 ,42 , '20160916', 120    ,0 ,0 ,0 ,0 ,1 ,0 ,8  , 'FD432' ),
-(6 ,  27  ,14 ,42 , '20160918', 130    ,0 ,1 ,0 ,0 ,0 ,0 ,9  , 'HFD432'),
-(3 ,  20  ,12 ,42 , '20160919', 45000  ,1 ,1 ,0 ,0 ,0 ,0 ,10 , 'FGV432');
-
-INSERT INTO security_concordance (
-  snz_uid       , 
-  snz_dia_uid   ,          
-  snz_ird_uid   ,         
-  snz_moh_uid   ,         
-  snz_cen_uid   ,         
-  snz_acc_uid   ,         
-  snz_dol_uid   ,         
-  snz_in_spine)
-VALUES
-(10 ,34    , NULL   , NULL, NULL ,29  ,NULL, 1),  
-(2  ,55    , NULL   , NULL, NULL ,23  ,NULL,1),    
-(1  ,32    , NULL   , NULL, NULL ,22  ,NULL,1),  
-(4  ,1     , NULL   , NULL, NULL ,21  ,NULL,1),   
-(7  ,67    , NULL   , NULL, NULL ,26  ,NULL,1),   
-(9  ,NULL  , 3      , NULL, NULL ,25  ,NULL,0),  
-(5  ,32    , 1      , NULL, NULL ,24  ,NULL,0),  
-(8  ,43    , 2      , NULL, NULL ,28  ,NULL,1),   
-(6  ,23    , 4      , NULL, NULL ,27  ,NULL,1),   
-(3  ,123   , 6      , NULL, NULL ,20  ,NULL,1),   
-(11 ,NULL  , 7      , NULL, NULL ,NULL,NULL,1),   
-(12 ,65    , 5      , NULL, NULL ,NULL,NULL,0),  
-(13 ,NULL  , 10     , NULL, NULL ,6   ,NULL,1),   
-(14 ,NULL  , 12     , NULL, NULL ,1   ,NULL,1),   
-(15 ,NULL  , 43     , NULL, NULL ,NULL,NULL,1),  
-(16 ,765   , 44     , NULL, NULL ,NULL,NULL,0),  
-(17 ,NULL  , 34     , NULL, NULL ,7   ,NULL,1),   
-(18 ,76    , 100    , NULL, NULL ,NULL,NULL,0),  
-(19 ,NULL  , 101    , NULL, 32   ,3   ,NULL,0);
-
-
--- CREATE TABLE dia_clean_births (
---  snz_uid                         int            not null UNIQUE, 
---  snz_dia_uid                     int            not null UNIQUE,
---  parent1_snz_uid                 int            null,
---  parent1_snz_dia_uid             int            null,
---  dia_bir_parent1_sex_snz_code    varchar(100)   null,
---  dia_bir_parent1_occupation_text varchar(60)    null,
---  parent2_snz_uid                 int            null,
---  parent2_snz_dia_uid             int            null,
---  dia_bir_parent2_sex_snz_code    varchar(100)   null,
---  dia_bir_parent2_occupation_text varchar(60)    null,
---  dia_bir_birth_month_nbr         tinyint        null,
---  dia_bir_birth_year_nbr          smallint       null,
---  dia_bir_sex_snz_code            varchar(100)   null,
---  dia_bir_ethnic_grp1_snz_ind     bit            not null,  -- European
---  dia_bir_ethnic_grp2_snz_ind     bit            not null,  -- Maori
---  dia_bir_ethnic_grp3_snz_ind     bit            not null,  -- Pacific
---  dia_bir_ethnic_grp4_snz_ind     bit            not null,  -- Asian
---  dia_bir_ethnic_grp5_snz_ind     bit            not null,  -- MELAA
---  dia_bir_ethnic_grp6_snz_ind     bit            not null); -- Other
---
--- CREATE TABLE dia_clean_deaths (
---  snz_uid                      int      not null UNIQUE, 
---  snz_dia_uid                  int      not null UNIQUE,
---  dia_dth_death_month_nbr      tinyint  null,
---  dia_dth_death_year_nbr       smallint null,
---  dia_dth_last_seen_month_nbr  tinyint  null,
---  dia_dth_last_seen_year_nbr   smallint null,);
---
--- CREATE TABLE dia_clean_marriages (
---  partnr1_snz_uid                 int          not null UNIQUE, 
---  partnr1_snz_dia_uid             int          not null UNIQUE,
---  partnr2_snz_uid                 int          not null UNIQUE, 
---  partnr2_snz_dia_uid             int          not null UNIQUE,
---  dia_mar_partnr1_birth_month_nbr tinyint      null,
---  dia_mar_partnr1_birth_year_nbr  smallint     null,
---  dia_mar_partnr1_sex_snz_code    varchar(100) null,
---  dia_mar_partnr1_occupation_text varchar(60)  null,
---  dia_mar_partnr2_birth_month_nbr tinyint      null,
---  dia_mar_partnr2_birth_year_nbr  smallint     null,
---  dia_mar_partnr2_sex_snz_code    varchar(100) null,
---  dia_mar_partnr2_occupation_text varchar(60)  null);
---
--- CREATE TABLE dia_clean_civil_unions (
---  partnr1_snz_uid                 int          not null UNIQUE, 
---  partnr1_snz_dia_uid             int          not null UNIQUE,
---  partnr2_snz_uid                 int          not null UNIQUE, 
---  partnr2_snz_dia_uid             int          not null UNIQUE,
---  dia_civ_partnr1_birth_month_nbr tinyint      null,
---  dia_civ_partnr1_birth_year_nbr  smallint     null,
---  dia_civ_partnr1_sex_snz_code    varchar(100) null,
---  dia_civ_partnr1_occupation_text varchar(60)  null,
---  dia_civ_partnr2_birth_month_nbr tinyint      null,
---  dia_civ_partnr2_birth_year_nbr  smallint     null,
---  dia_civ_partnr2_sex_snz_code    varchar(100) null,
---  dia_civ_partnr2_occupation_text varchar(60)  null);
---
+INSERT INTO ACC_Clean_Serious_Injury VALUES
+(10,  29  ,0   ,42 , '20160901', 15000  ,1 ,0 ,0 ,1 ,0 ,1 ,1  , 'MZ321' ),
+(2 ,  23  ,1   ,32 , '20160912', 12000  ,1 ,0 ,0 ,0 ,0 ,0 ,2  , 'KL653' ),
+(1 ,  22  ,2   ,32 , '20160913', 130000 ,0 ,1 ,0 ,0 ,0 ,0 ,3  , 'DF24'  ),
+(4 ,  21  ,3   ,54 , '20160923', 132000 ,0 ,1 ,0 ,0 ,0 ,0 ,4  , 'EW321' ),
+(7 ,  26  ,4   ,65 , '20160902', 23000  ,0 ,1 ,0 ,0 ,0 ,0 ,5  , 'EW321' ),
+(9 ,  25  ,5   ,65 , '20160921', 32000  ,0 ,0 ,0 ,1 ,0 ,0 ,6  , 'KL432' ),
+(5 ,  24  ,6   ,23 , '20160918', 500    ,1 ,0 ,0 ,0 ,0 ,0 ,7  , 'EW234' ),
+(8 ,  28  ,7   ,42 , '20160916', 120    ,0 ,0 ,0 ,0 ,1 ,0 ,8  , 'FD432' ),
+(6 ,  27  ,8   ,42 , '20160918', 130    ,0 ,1 ,0 ,0 ,0 ,0 ,9  , 'HFD432'),
+(3 ,  20  ,9   ,42 , '20160919', 45000  ,1 ,1 ,0 ,0 ,0 ,0 ,10 , 'FGV432'),
+(20,  31  ,NULL,42 , '20170601', 20000  ,1 ,0 ,0 ,0 ,0 ,0 ,11  , 'EW321' ), 
+(21,  32  ,NULL,23 , '20170602', 20000  ,1 ,0 ,0 ,0 ,0 ,0 ,12  , 'EW321' ),
+(22,  33  ,NULL,65 , '20170603', 20000  ,1 ,0 ,0 ,0 ,0 ,0 ,13  , 'EW234' ),
+(23,  34  ,NULL,65 , '20170604', 20000  ,0 ,1 ,0 ,0 ,0 ,0 ,14  , 'EW234' ),
+(24,  35  ,NULL,54 , '20170605', 20000  ,0 ,1 ,0 ,0 ,0 ,0 ,15  , 'FD432' ),
+(25,  36  ,15  ,32 , '20171206', 20000  ,0 ,1 ,0 ,0 ,0 ,0 ,16  , 'FD432' ),
+(26,  37  ,16  ,32 , '20170207', 30000  ,0 ,1 ,0 ,0 ,0 ,0 ,17  , 'FD432' ),
+(27,  38  ,17  ,42 , '20170608', 30000  ,0 ,1 ,0 ,0 ,0 ,0 ,18  , 'FD432' ),
+(28,  39  ,18  ,65 , '20180309', 30000  ,0 ,0 ,1 ,0 ,0 ,0 ,19  , 'FD432' ),
+(29,  41  ,19  ,54 , '20181110', 30000  ,0 ,0 ,1 ,0 ,0 ,0 ,20  , 'FD432' ),
+(30,  42  ,20  ,32 , '20180711', 45000  ,0 ,0 ,1 ,0 ,0 ,0 ,21  , 'DF24'  ),
+(31,  43  ,21  ,32 , '20180612', 45000  ,0 ,0 ,0 ,1 ,0 ,0 ,22  , 'DF24'  ),
+(32,  44  ,22  ,42 , '20180513', 45000  ,0 ,0 ,0 ,1 ,0 ,0 ,23  , 'MZ321' ),
+(33,  45  ,23  ,32 , '20180614', 45000  ,0 ,0 ,0 ,0 ,1 ,0 ,24  , 'MZ321' );
 
 -- INSERT INTO DIA_Clean_civil_unions VALUES (10, 34,    6 ,   23  , 1, 1975, 1, NULL, 1,  1976, 1, NULL);
 -- INSERT INTO DIA_Clean_civil_unions VALUES (2,  55,    3 ,   123 , 2, 1966, 0, NULL, 6,  1969, 1, NULL);
 -- INSERT INTO DIA_Clean_civil_unions VALUES (1,  32,    12,   65  , 5, 1977, 0, NULL, 4,  1973, 1, NULL);
 -- INSERT INTO DIA_Clean_civil_unions VALUES (4,  1,     16,   765 , 5, 1988, 1, NULL, 4,  1989, 0, NULL);
 -- INSERT INTO DIA_Clean_civil_unions VALUES (7,  67,    18,   76  , 9, 1999, 0, NULL, 12, 1995, 0, NULL);
---  
 
 -- ---------------------------------------------------------------
 -- CREATE IDI_Metadata DATABASE ---------------------------------
@@ -304,26 +252,19 @@ VALUES
 DROP DATABASE IF EXISTS IDI_Metadata;
 CREATE DATABASE IDI_Metadata;
 
-
 USE IDI_Metadata;
 
-
--- I'm not sure what the table names or
--- variable names are in here so these
--- are just made up to simulate the functionality
-CREATE TABLE clean_read_CLASSIFICATIONS_ethnicity (
+CREATE TABLE clean_read_CLASSIFICATIONS_acc_ethnicity_code (
   ethnic_grp int not null, -- a number from 1 to 6
   description varchar(100) not null
 );
-
 
 CREATE TABLE clean_read_CLASSIFICATIONS_post_codes (
   post_code int not null,
   description varchar(100)
 );
 
-
-INSERT INTO clean_read_CLASSIFICATIONS_ethnicity
+INSERT INTO clean_read_CLASSIFICATIONS_acc_ethnicity_code
 (ethnic_grp, description)
 VALUES
 (1, 'European'),
@@ -332,6 +273,19 @@ VALUES
 (4, 'Asian'),
 (5, 'Middle Eastern/Latin American/African'),
 (6, 'Other ethnicity');
+
+CREATE TABLE clean_read_CLASSIFICATIONS_cor_ethnicity_code (
+  ethnic_grp int not null, -- a number from 1 to 6
+  description varchar(100) not null
+);
+
+INSERT INTO clean_read_CLASSIFICATIONS_cor_ethnicity_code
+(ethnic_grp, description)
+VALUES
+(2, 'European'),
+(1, 'Maori/Pacific Peoples'),
+(3, 'Asian'),
+(4, 'Other ethnicity');
 
 -- ---------------------------------------------------------------
 -- CREATE OLDER IDI_Clean REFRESH DATABASE ----------------------
