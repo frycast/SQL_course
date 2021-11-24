@@ -26,7 +26,7 @@ The textbook and slides will be linked below as they become ready.
 
 ## Beginner R tutorial
 
-For beginner R programmers, day 4 may move a bit fast. This tutorial will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
+For beginner R programmers, day 4 may move a bit fast. This tutorial (by [SwirlStats](https://swirlstats.com/students.html)) will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
 
 * [Beginner R tutorial (R script)](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
 
