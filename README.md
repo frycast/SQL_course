@@ -22,7 +22,7 @@ The textbook and slides will be linked below as they become ready.
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
 * [Day 3 slides](textbook-and-slides/SQL_Course_Slides_Day_3.pdf)
-* [Day 4 slides (right-click and 'save link as')](https://github.com/frycast/umbrella/raw/main/present/unleashing-SQL-with-R/unleashing-SQL-with-R.html)
+* [Day 4 slides](https://frycast.github.io/unleashing-SQL-with-R/)
 
 ## Beginner R tutorial
 
