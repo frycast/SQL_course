@@ -29,3 +29,12 @@ The textbook and slides will be linked below as they become ready.
 For beginner R programmers, day 4 may move a bit fast. This tutorial will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
 
 * [Beginner R tutorial (R script)](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
+
+## IDI Stuff
+
+If you are working with the New Zealand Integrated Data Infrastructure, you may be interested in the links below.
+
+* [Day 3 slides include a section on the IDI](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
+* [The 'IDI Stuff' folder includes some useful papers and two data dictionaries](IDI-stuff)
+* [Many more data dictionaries on StatsNZ DataInfo+ website](http://datainfoplus.stats.govt.nz/Search?query=idi&search=Search&itemType=4bd6eef6-99df-40e6-9b11-5b8f64e5cb23)
+* [A searchable list of variables available in the IDI](https://idi-search.web.app/claims/acc_cla_accident_in_NZ_ind)
