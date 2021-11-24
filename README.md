@@ -45,4 +45,3 @@ If you are working with the New Zealand Integrated Data Infrastructure, you may 
 * [Many more data dictionaries on StatsNZ DataInfo+ website](http://datainfoplus.stats.govt.nz/Search?query=idi&search=Search&itemType=4bd6eef6-99df-40e6-9b11-5b8f64e5cb23)
 * [A searchable list of variables available in the IDI](https://idi-search.web.app/claims/acc_cla_accident_in_NZ_ind)
 
-
