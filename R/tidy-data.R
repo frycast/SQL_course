@@ -2,7 +2,6 @@
 install.packages("tidyr")
 library(tidyr)
 
-
 # Relig_income data -------------------------------------------------------
 
 # The package comes with its own datasets to practice on, for example:
