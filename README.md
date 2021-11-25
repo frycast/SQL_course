@@ -1,10 +1,6 @@
 # Introduction to SQL
 
-Notes and course material will be uploaded here, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
-
-The next delivery is:
-
-* Nov 22-25, 2021, for the [New Zealand Social Statistics Network](https://www.auckland.ac.nz/en/arts/our-research/research-institutes-centres-groups/compass/nzssn/introduction-to-sql.html)
+Textbook and course material, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
 ## Set up guides
 
@@ -15,7 +11,7 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 
 ## Notes and slides
 
-The textbook and slides will be linked below as they become ready.
+The textbook and slides are linked below.
 
 * [Course textbook](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
