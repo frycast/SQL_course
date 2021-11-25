@@ -2,7 +2,7 @@
 
 ### Beginners
 
-For beginners, I've prepared the below zip file containing four scripts for you to run through in order (1,2,3,4). These four scripts contain the major takeaways from day 4.
+For beginners, I've prepared the below zip file containing four scripts for you to run through in order (0,1,2,3). These four scripts contain the major takeaways from day 4.
 
 * [(zip file) beginner scripts](beginners.zip)
 
