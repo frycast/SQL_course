@@ -19,6 +19,6 @@ For the links that say "R script", you can right-click (or control-click) the li
 * [(R script) Intro tutorial for programming in R](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
 * [(R script) Connecting to a remote MySQL server](https://github.com/frycast/SQL_course/raw/master/R/connecting-R/remote-MySQL.R)
 * [A SQLite copy of the Sandpit database](sqlite-R/Sandpit.sqlite)
-* [Tidy data in R](tidy-data.R)
+* [(R script) Tidy data in R](https://github.com/frycast/SQL_course/raw/master/R/tidy-data.R)
 * [The 'umbrella' example project directory (includes RMarkdown code for the day 4 slides)](https://github.com/frycast/umbrella)
 * [More on using SQLite in R](sqlite-R)
