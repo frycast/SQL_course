@@ -17,7 +17,6 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 
 The textbook and slides will be linked below as they become ready.
 
-
 * [Course textbook](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
