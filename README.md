@@ -13,7 +13,7 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 
 The textbook and slides are linked below.
 
-* [Course textbook](textbook-and-slides/SQL_Course_Textbook.pdf)
+* [Course text: The Necessary SQL, featuring MySQL and T-SQL](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
 * [Day 3 slides](textbook-and-slides/SQL_Course_Slides_Day_3.pdf)
