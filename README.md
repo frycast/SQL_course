@@ -9,7 +9,7 @@ For this course, you need to choose between T-SQL and MySQL. If you don't know w
 * **Set up your database with T-SQL (easiest for Windows):** [click here](create-database/T-SQL/README.md)
 * **Set up your database with MySQL (easiest for macOS):** [click here](create-database/MySQL/README.md)
 
-## Notes and slides
+## Textbook and slides
 
 The textbook and slides are linked below.
 
