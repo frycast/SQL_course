@@ -4,7 +4,7 @@ Textbook and course material, for the Introduction to SQL course, taught by [Dan
 
 ## Set up guides
 
-For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. If you are on macOS and you really want to use T-SQL, then please do not leave the set up process to the last minute. You must try to get set up before the course. Feel free to contact me if you need help. The guides below will help you get set up.
+For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. Please do not leave the set up process to the last minute. Leave some time to iron out difficulties getting set up! Feel free to contact me if you need help. The guides below will help you get set up.
 
 * **Set up your database with T-SQL (easiest for Windows):** [click here](create-database/T-SQL/README.md)
 * **Set up your database with MySQL (easiest for macOS):** [click here](create-database/MySQL/README.md)
