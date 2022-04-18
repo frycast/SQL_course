@@ -2,6 +2,8 @@
 
 Textbook and course material, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
+This repository includes slides for the full 4 day course. Those attending the 2 day course will notice small differences in the slides when we get started.
+
 ## Set up guides
 
 For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. Please do not leave the set up process to the last minute. Leave some time to iron out difficulties getting set up! Feel free to contact me if you need help. The guides below will help you get set up.
