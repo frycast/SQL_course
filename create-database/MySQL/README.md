@@ -10,34 +10,33 @@ This will guide you through **installing the server**, **installing the editor**
 1. Go to [the 'MySQL installer' download page](https://dev.mysql.com/downloads/installer/).
 2. On that page, there are two options. Download the **bottom** one (`mysql-installer-community`). On the next page, you do not have to log in, just click 'no thanks...'.
 3. Run the installer that you just downloaded.
-4. The 'Choosing a Setup Type' menu appears. Choose 'Custom' and press 'Next'.
-5. The 'Select Products' menu appears. There will be a number of products already selected. **Deselect** 'MySQL for Visual Studio'. The rest are fine. Click 'Next'.
-6. The 'Installation' overview menu appears. Click 'Execute'. 
-7. Wait for installation to complete. Then click 'Next'.
-8. The 'Product Configuration' menu appears. Click 'Next'.
-9. The 'Type and Networking' menu appears. Click 'Next'.
-10. The 'Authentication Method' menu appears. Click 'Next'.
-11. The 'Accounts and Roles' menu appears. Choose a secure MySQL Root Password, and write it down. You do not need to create any other user accounts. Click 'Next'.
-12. The 'Windows Service' menu appears. Do not change the defaults. Click 'Next'.
-13. When the configuration is done, click 'Finish'.
-14. Product configuration continues. Take a deep breath. Click 'Next'.
-15. The 'Connect To Server' menu appears. Input the root password that you chose in step 11. Click 'check' and then click 'Next'.
-16. The 'Apply Configuration' menu appears. Click 'Execute'.
-17. When the configuration is done, click 'Finish'.
-18. Product configuration continues. Take another deep breath. Click 'Next'.
-19. The 'MySQL Router Configuration' menu appears. Click 'Finish'.
-20. The 'Product Configuration' menu appears again. Click 'Next'.
-21. Installation is complete. Click 'Finish'.
+4. The 'Choosing a Setup Type' menu appears. Choose 'Developer Default' and press 'Next'.
+5. The 'Installation' overview menu appears. Click 'Execute'. 
+6. Wait for installation to complete. Then click 'Next'.
+7. The 'Product Configuration' menu appears. Click 'Next'.
+8. The 'Type and Networking' menu appears. Click 'Next'.
+9. The 'Authentication Method' menu appears. Click 'Next'.
+10. The 'Accounts and Roles' menu appears. Choose a secure MySQL Root Password, and write it down. You do not need to create any other user accounts. Click 'Next'.
+11. The 'Windows Service' menu appears. Do not change the defaults. Click 'Next'.
+12. When the configuration is done, click 'Finish'.
+13. Product configuration continues. Take a deep breath. Click 'Next'.
+14. The 'Connect To Server' menu appears. Input the root password that you chose in step 11. Click 'check' and then click 'Next'.
+15. The 'Apply Configuration' menu appears. Click 'Execute'.
+16. When the configuration is done, click 'Finish'.
+17. Product configuration continues. Take another deep breath. Click 'Next'.
+18. The 'MySQL Router Configuration' menu appears. Click 'Finish'.
+19. The 'Product Configuration' menu appears again. Click 'Next'.
+20. Installation is complete. Click 'Finish'.
 
 ### Windows: installing the editor
 
 The above process also installed MySQL Workbench. This is the MySQL editor we will use.
 
-22. Open MySQL Workbench (e.g., press the 'Windows' key on your keyboard, and type 'MySQL Workbench', then press Enter).
-23. Next to the word 'MySQL Connections', there is a plus symbol. Click it to add a new connection.
-24. Under 'Connection Name' type 'MyLocal'.
-25. Under 'Hostname' type 'localhost'. 
-26. Under 'Username' type 'root'.
+21. Open MySQL Workbench (e.g., press the 'Windows' key on your keyboard, and type 'MySQL Workbench', then press Enter).
+22. Next to the word 'MySQL Connections', there is a plus symbol. Click it to add a new connection.
+23. Under 'Connection Name' type 'MyLocal'.
+24. Under 'Hostname' type 'localhost'. 
+25. Under 'Username' type 'root'.
 26. Click 'OK'.
 27. The 'MyLocal' connection box has been created. Click on it, then enter the password that you chose in step 11. If you like, you can check the box that says 'Save password in vault'. Click 'OK'.
 28. MySQL Workbench is now connected.
