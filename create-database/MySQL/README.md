@@ -8,7 +8,7 @@ This will guide you through **installing the server**, **installing the editor**
 
 ### Windows: installing the server
 1. Go to [the 'MySQL installer' download page](https://dev.mysql.com/downloads/installer/).
-2. On that page, there are two options. Download the **bottom** one (`mysql-installer-community`).
+2. On that page, there are two options. Download the **bottom** one (`mysql-installer-community`). On the next page, you do not have to log in, just click 'no thanks...'.
 3. Run the installer that you just downloaded.
 4. The 'Choosing a Setup Type' menu appears. Choose 'Custom' and press 'Next'.
 5. The 'Select Products' menu appears. There will be a number of products already selected. **Deselect** 'MySQL for Visual Studio'. The rest are fine. Click 'Next'.
