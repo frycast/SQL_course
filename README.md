@@ -2,9 +2,13 @@
 
 Textbook and course material, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
+This repository includes slides for the full 4 day course. Those attending the 2 day course will notice small differences in the slides when we get started.
+
 ## Set up guides
 
-For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. Please do not leave the set up process to the last minute. Leave some time to iron out difficulties getting set up! Feel free to contact me if you need help. The guides below will help you get set up.
+For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. Please do not leave the set up process to the last minute. Leave some time to iron out difficulties getting set up! Feel free to contact me if you need help. The guides below will help you get set up. 
+
+In my experience, it is best to do this on a personal computer, since some people have experienced difficulty getting set up on a work computer (e.g., if you don't have administrator rights).
 
 * **Set up your database with T-SQL (easiest for Windows):** [click here](create-database/T-SQL/README.md)
 * **Set up your database with MySQL (easiest for macOS):** [click here](create-database/MySQL/README.md)
@@ -15,9 +19,12 @@ The textbook and slides are linked below.
 
 * [Course text (The Necessary SQL, featuring MySQL and T-SQL)](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
+<!-- 
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
 * [Day 3 slides](textbook-and-slides/SQL_Course_Slides_Day_3.pdf)
 * [Day 4 slides](textbook-and-slides/SQL_Course_Slides_Day_4.pdf)
+-->
+
 
 ## Beginner R tutorial
 
