@@ -1,3 +1,5 @@
+# TODO: Check out https://tidydatatutor.com/
+
 # To get started, we need the tidyr package
 install.packages("tidyr")
 library(tidyr)
