@@ -12,7 +12,7 @@ Navigate to [sqlfiddle.com](http://sqlfiddle.com/), select MS SQL Server 2017 fr
 
 Here are links to the schema code for the exercises:
 
-* [Notes schema](T-SQL-notes-schema.sql) 
-* [Ape schema](T-SQL-ape-schema.sql)
-* [Analytics schema](T-SQL-analytics-schema.sql)
+* [Notes schema](https://github.com/frycast/SQL_course/raw/master/create-database/SQLFiddle/T-SQL-notes-schema.sql) 
+* [Ape schema](https://github.com/frycast/SQL_course/raw/master/create-database/SQLFiddle/T-SQL-ape-schema.sql)
+* [Analytics schema](https://github.com/frycast/SQL_course/raw/master/create-database/SQLFiddle/T-SQL-analytics-schema.sql)
 
