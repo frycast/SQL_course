@@ -20,8 +20,8 @@ The textbook and slides are linked below.
 * [Course text (The Necessary SQL, featuring MySQL and T-SQL)](textbook-and-slides/SQL_Course_Textbook.pdf)
 * [Day 1 slides](textbook-and-slides/SQL_Course_Slides_Day_1.pdf)
 * [Day 2 slides](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
-<!-- 
 * [Day 3 slides](textbook-and-slides/SQL_Course_Slides_Day_3.pdf)
+<!-- 
 * [Day 4 slides](textbook-and-slides/SQL_Course_Slides_Day_4.pdf)
 -->
 
