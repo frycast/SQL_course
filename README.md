@@ -30,7 +30,7 @@ The textbook and slides are linked below.
 
 ## Beginner R tutorial
 
-For beginner R programmers, day 4 may move a bit fast. This tutorial (by [SwirlStats](https://swirlstats.com/students.html)) will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
+R is covered in 4-day course, though we may have time for some R material during the 2-day course, depending on the audience. For beginner R programmers, day 4 may move a bit fast. This tutorial (by [SwirlStats](https://swirlstats.com/students.html)) will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
 
 * [Beginner R tutorial (R script)](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
 
