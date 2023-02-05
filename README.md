@@ -2,7 +2,9 @@
 
 Textbook and course material, for the Introduction to SQL course, taught by [Daniel Fryer](https://danielvfryer.com).
 
-This repository includes slides for the full 4 day course. Those attending the 2 day course will notice small differences in the slides when we get started.
+This repository includes slides for the full 4-day course.
+
+There is also a 2-day course. If you are attending the 2-day course, we won't cover all of the 4-day material, but you still get access to all of it.
 
 ## Set up guides
 
@@ -28,7 +30,7 @@ The textbook and slides are linked below.
 
 ## Beginner R tutorial
 
-For beginner R programmers, day 4 may move a bit fast. This tutorial (by [SwirlStats](https://swirlstats.com/students.html)) will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
+R is covered in 4-day course, though we may have time for some R material during the 2-day course, depending on the audience. For beginner R programmers, day 4 may move a bit fast. This tutorial (by [SwirlStats](https://swirlstats.com/students.html)) will help you get prepared (or brush up). Right-click (or control-click) the link below, and choose 'save link as'. This will download the R script. Once downloaded, open the script in RStudio. 
 
 * [Beginner R tutorial (R script)](https://github.com/frycast/SQL_course/raw/master/R/intro-to-R.R)
 
@@ -40,7 +42,7 @@ To be fully prepared for day 4, I suggest you complete all lessons from Lesson 1
 
 ## IDI Stuff
 
-If you are working with the New Zealand Integrated Data Infrastructure, you may be interested in the links below.
+If you are working with the New Zealand Integrated Data Infrastructure (4-day course only), you may be interested in the links below.
 
 * [Day 3 slides include a section on the IDI](textbook-and-slides/SQL_Course_Slides_Day_2.pdf)
 * [The 'IDI Stuff' folder includes some useful papers and two data dictionaries](IDI-stuff)
