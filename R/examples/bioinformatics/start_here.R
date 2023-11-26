@@ -22,8 +22,8 @@
 #
 # The same dummy data is used in both databases.
 #
-# Database 1 (gene_variants) is then 
-# compared to database 2 (gene_variants_dodgy).
+# Database 1 (variants) is then 
+# compared to database 2 (variants_dodgy).
 #
 # The comparison highlights why we prefer 
 # database 1 over database 2.
@@ -45,6 +45,7 @@ library(readr)
 library(glue)
 library(tibble)
 library(dplyr)
+library(magrittr)
 
 # We will use these helper functions too 
 source("functions.R")
@@ -61,6 +62,10 @@ execute_sql_script(con, "create_variants_database.sql")
 
 # list the table name
 DBI::dbListTables(con)
+
+# take a look at the Gene table for example
+gene <- dplyr::tbl(con, "Gene")
+gene <- gene %>% dplyr::collect()
 
 # This joins all the tables in the variants database
 query <- '
@@ -97,8 +102,12 @@ write.csv(one_table, "data/patient_variants.csv")
 con1 <- DBI::dbConnect(RSQLite::SQLite(), "data/variants_dodgy.sqlite")
 con2 <- DBI::dbConnect(RSQLite::SQLite(), "data/variants.sqlite")
 
+# The variants (like G13D) always have pattern <letter><number><letter>.
+# Final all the variants starting with D. Count the number of times a patient
+# has had that variant.
+
 # query1 and query2 both achieve the same thing, just on different database
-# structures.
+# structures. 
 
 # This one uses variants_dodgy database. It makes use of LIKE
 query1 <- "

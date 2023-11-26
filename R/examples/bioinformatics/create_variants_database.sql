@@ -6,6 +6,18 @@ CREATE TABLE variant (
   position integer NOT NULL
 );
 
+-- -- TODO: See email for update:
+-- CREATE TABLE variant (
+--   name text NOT NULL,
+--   variant_id integer PRIMARY KEY AUTOINCREMENT,
+--   chromosome text NOT NULL,
+--   position int NOT NULL,
+--   reference text NOT NULL,
+--   alternate text NOT NULL,
+-- );
+
+WHERE chromosome = '<something>' AND 
+
 INSERT INTO variant
 (NAME, variant_ID, change_from, change_to, position)
 VALUES
