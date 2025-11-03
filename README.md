@@ -6,14 +6,36 @@ This repository includes slides for the full 4-day course.
 
 There is also a 2-day course. If you are attending the 2-day course, we won't cover all of the 4-day material, but you still get access to all of it.
 
-## Set up guides
+## Setup Guide
 
-For this course, you need to choose between T-SQL and MySQL. If you don't know which one you want, then consider this: if you are on Windows, T-SQL is the easiest to set up and use. If you are on macOS, then MySQL is the easiest to set up and use. Please do not leave the set up process to the last minute. Leave some time to iron out difficulties getting set up! Feel free to contact me if you need help. The guides below will help you get set up. 
+For this course, you'll need a way to write and run SQL commands. The best option is to install [**Visual Studio Code (VS Code)**](https://code.visualstudio.com/) — a free, beginner-friendly code editor that's widely used across the industry. It supports SQL (and many other languages) and makes writing code enjoyable and efficient.
+👉 [Download Visual Studio Code](https://code.visualstudio.com/)
 
-In my experience, it is best to do this on a personal computer, since some people have experienced difficulty getting set up on a work computer (e.g., if you don't have administrator rights).
+### Step 1: Install a Database Server (DBMS)
 
-* **Set up your database with T-SQL (easiest for Windows):** [click here](create-database/T-SQL/README.md)
-* **Set up your database with MySQL (easiest for macOS):** [click here](create-database/MySQL/README.md)
+To actually *run* your SQL commands, you'll also need a database server installed on your computer. If you're using a **work computer**, you might not have permission to install software. In that case, I'll provide access to a **remote database** during the course — but the experience will **not be as smooth**.
+
+If possible, install your own DBMS following one of the guides below.
+
+### Step 2: Choose Your SQL Dialect
+
+There are two SQL variants we'll use in this course — **T-SQL** and **MySQL**. They're nearly identical for our purposes, so you can choose whichever is easier to set up:
+
+* 💻 **Windows users:** [Set up T-SQL (Microsoft SQL Server)](create-database/T-SQL/README.md)
+  *This is usually the easiest option on Windows.*
+* 🍎 **macOS users:** [Set up MySQL](create-database/MySQL/README.md)
+  *This is usually the easiest option on Mac.*
+
+### Step 3: Allow Time for Setup
+
+Please don't leave setup until the last minute — installation and configuration can take time, especially if you run into permission issues.
+If you hit any snags, reach out for help early — I'm happy to assist!
+
+### Tips
+
+* You'll have the best experience using a **personal computer** (with administrator access).
+  Some students have had difficulties getting everything working on locked-down work devices.
+* The setup guides linked above will walk you through everything step by step.
 
 ## Textbook and slides
 
