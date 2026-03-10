@@ -6,36 +6,45 @@ This repository includes slides for the full 4-day course.
 
 There is also a 2-day course. If you are attending the 2-day course, we won't cover all of the 4-day material, but you still get access to all of it.
 
-## Setup Guide
+## OPTIONAL Setup Guide
 
-For this course, you'll need a way to write and run SQL commands. The best option is to install [**Visual Studio Code (VS Code)**](https://code.visualstudio.com/) — a free, beginner-friendly code editor that's widely used across the industry. It supports SQL (and many other languages) and makes writing code enjoyable and efficient.
-👉 [Download Visual Studio Code](https://code.visualstudio.com/)
+For this course, you **do not need to install a database server or editor on your computer**. We’ll be using a **simple online SQL environment** during the course so everyone can immediately start writing and running SQL without worrying about setup.
 
-### Step 1: Install a Database Server (DBMS)
+However, some people prefer to have their **own database server and editor installed locally**, either for practice or future work. The instructions below explain how to do that if you'd like your own setup.
 
-To actually *run* your SQL commands, you'll also need a database server installed on your computer. If you're using a **work computer**, you might not have permission to install software. In that case, I'll provide access to a **remote database** during the course — but the experience will **not be as smooth**.
+During the course we’ll also briefly demonstrate **SQL Server Management Studio (SSMS)** for those who already have it installed and want to learn the basics. SSMS is commonly used in environments such as the **New Zealand Integrated Data Infrastructure (IDI) Data Lab**, so it can be useful to become familiar with.
 
-If possible, install your own DBMS following one of the guides below.
+If you're using a **Mac**, you can install **MySQL Workbench**, which provides both a database server and an editor. We won’t be covering MySQL Workbench in the course itself, but it is relatively straightforward to use and conceptually similar to SSMS.
 
-### Step 2: Choose Your SQL Dialect
+### Step 1: Install a Database Server (Optional)
 
-There are two SQL variants we'll use in this course — **T-SQL** and **MySQL**. They're nearly identical for our purposes, so you can choose whichever is easier to set up:
+If you'd like to run SQL locally on your own machine, you'll need to install a **database server (DBMS)**. This allows you to store data and run SQL queries on your computer.
+
+If you're using a **work computer**, you may not have permission to install software. In that case, simply use the **online environment provided during the course**.
+
+If you do want your own local setup, follow one of the guides below.
+
+### Step 2: Choose Your SQL Dialect (Optional)
+
+There are two SQL variants you can install locally — **T-SQL** and **MySQL**. They're nearly identical for the purposes of this course, so choose whichever is easier for your system.
 
 * 💻 **Windows users:** [Set up T-SQL (Microsoft SQL Server)](create-database/T-SQL/README.md)
-  *This is usually the easiest option on Windows.*
+  *This is usually the easiest option on Windows and works with SQL Server Management Studio (SSMS).*
+
 * 🍎 **macOS users:** [Set up MySQL](create-database/MySQL/README.md)
-  *This is usually the easiest option on Mac.*
+  *This installs MySQL and allows you to use MySQL Workbench as an editor.*
 
-### Step 3: Allow Time for Setup
+### Step 3: Allow Time for Setup (If Installing Locally)
 
-Please don't leave setup until the last minute — installation and configuration can take time, especially if you run into permission issues.
-If you hit any snags, reach out for help early — I'm happy to assist!
+If you decide to install your own database server, please don’t leave setup until the last minute — installation and configuration can take time, especially if you run into permission issues.
+
+If you hit any snags, reach out early — I’m happy to help.
 
 ### Tips
 
-* You'll have the best experience using a **personal computer** (with administrator access).
-  Some students have had difficulties getting everything working on locked-down work devices.
-* The setup guides linked above will walk you through everything step by step.
+* **No installation is required for the course** — the online SQL environment will work for everyone.
+* If you want the smoothest experience installing locally, use a **personal computer with administrator access**.
+* The setup guides linked above walk through everything step by step.
 
 ## Textbook and slides
 
@@ -48,4 +57,3 @@ The textbook and slides are linked below.
 * Day 4 slides:
   - [Day 4 non-interactive pdf version](textbook-and-slides/SQL_Course_Slides_Day_4.pdf)
   - [Day 4 interactive web version](https://rpubs.com/frycast/sql-with-r)
-
